@@ -3,135 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CTCAE v6 Resources</title>
-
+<title>Pneumo · Radiothérapie thoracique</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-    --primary:#0969da;
-    --primary-dark:#0550ae;
-    --bg:#f6f8fa;
-    --card:#ffffff;
-    --text:#24292f;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1a1f2e; --text2: #4a5568; --text3: #8a9ab5;
+    --border: #d8e0eb; --bg: #f8fafc; --white: #ffffff;
+    --mo: #1a5fa8; --revue: #0e7a6e; --biblio: #b45309;
+    --radius: 10px; --w: 820px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e6eaf2; --text2: #b3bdcc; --text3: #7d8aa0;
+      --border: #2c3545; --bg: #121722; --white: #1a2130;
+      --mo: #6ea8f0; --revue: #4cc2b2; --biblio: #e6a04a;
+    }
+  }
+  body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--bg); color: var(--text); min-height: 100vh; padding: 40px 16px 60px; }
+  a { color: inherit; }
 
-body{
-    margin:0;
-    padding:40px 20px;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-}
+  .page-header { max-width: var(--w); margin: 0 auto 36px; border-bottom: 2px solid var(--text); padding-bottom: 20px; }
+  .page-header-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .page-title { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.9rem; line-height: 1.15; }
+  .page-title span { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 400; color: var(--text2); margin-top: 5px; }
+  .page-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-align: right; line-height: 1.8; }
 
-.container{
-    max-width:1000px;
-    margin:auto;
-}
+  .section-label { max-width: var(--w); margin: 0 auto 14px; font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text3); display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-header{
-    text-align:center;
-    margin-bottom:40px;
-}
+  .cards { max-width: var(--w); margin: 0 auto 36px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .cards.single { grid-template-columns: 1fr; }
+  .card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--c, var(--text3)); border-radius: var(--radius); padding: 15px 18px; text-decoration: none; display: flex; flex-direction: column; transition: box-shadow 0.2s; }
+  .card:hover { box-shadow: 0 3px 16px rgba(0,0,0,0.09); }
+  .card-title { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 4px; }
+  .card-badge { align-self: flex-start; font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 20px; border: 1px solid var(--c); color: var(--c); margin-bottom: 8px; }
+  .card-desc { font-size: 12.3px; color: var(--text2); line-height: 1.55; flex: 1; }
+  .card-link { margin-top: 10px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--c); }
+  .c-mo { --c: var(--mo); } .c-revue { --c: var(--revue); } .c-biblio { --c: var(--biblio); } .c-pub { --c: var(--text3); }
 
-h1{
-    color:var(--primary);
-    margin-bottom:10px;
-}
+  .footer { max-width: var(--w); margin: 10px auto 0; font-size: 11.5px; color: var(--text2); line-height: 1.65; border-top: 1px solid var(--border); padding-top: 16px; }
+  .footer p { margin-bottom: 8px; }
+  .footer strong { font-weight: 500; color: var(--text); }
 
-.subtitle{
-    color:#57606a;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:var(--card);
-    border-radius:12px;
-    padding:24px;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-.card h2{
-    margin-top:0;
-}
-
-.button{
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 18px;
-    background:var(--primary);
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:600;
-}
-
-.button:hover{
-    background:var(--primary-dark);
-}
-
-footer{
-    text-align:center;
-    margin-top:40px;
-    color:#57606a;
-    font-size:0.9em;
-}
+  @media (max-width: 640px) {
+    body { padding: 28px 16px 48px; }
+    .page-title { font-size: 1.55rem; }
+    .page-meta { text-align: left; }
+    .cards { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-
-<header>
-    <h1>CTCAE v6 Resources</h1>
-    <p class="subtitle">
-        Explorer interactif et fichier de référence CTCAE v6
-    </p>
+<header class="page-header">
+  <div class="page-header-top">
+    <h1 class="page-title">Pneumo
+      <span>Radiothérapie thoracique — mode opératoire et revues de littérature</span></h1>
+    <div class="page-meta">Usage personnel<br>1 mode opératoire · 2 revues<br>Mise à jour : novembre 2026</div>
+  </div>
 </header>
 
-<div class="cards">
+<div class="section-label">Mode opératoire du service</div>
+<section class="cards single">
+  <a class="card c-mo" href="MO_poumon_2026.html">
+    <div class="card-title">MO radiothérapie pulmonaire 2026</div>
+    <span class="card-badge">Protocole du service · 2026</span>
+    <div class="card-desc">Indications, aide à la décision en stéréotaxie, contention et acquisition, délinéation, protocoles de doses, planimétrie, contraintes OAR, gradient et conformité SBRT (R50 %, GI de Paddick), BED / EQD2, IGRT, suivi, recommandations et essais en cours.</div>
+    <div class="card-link">MO_poumon_2026.html</div>
+  </a>
+</section>
 
-    <div class="card">
-        <h2>🔍 CTCAE v6 Explorer</h2>
-        <p>
-            Outil interactif permettant de parcourir les termes et grades du CTCAE v6.
-        </p>
-        <a class="button" href="           Ouvrir l'explorer
-        </a>
-    </div>
+<div class="section-label">CBNPC · revues de littérature</div>
+<section class="cards">
+  <a class="card c-biblio" href="BIBLIO_LCT_CBNPC_M_consolidation.html">
+    <div class="card-title">RT de consolidation locale — CBNPC métastatique</div>
+    <span class="card-badge">Oligométastatique · oligoprogression · mars 2026</span>
+    <div class="card-desc">LCT (SBRT / SABR) en situation synchrone, métachrone et d'oligoprogression ; verdicts par contexte : EGFR muté (SINDAS), WT sous immunothérapie (NRG-LU002), oligoprogression (CURB). Schémas de dose par site, toxicité.</div>
+    <div class="card-link">BIBLIO_LCT_CBNPC_M_consolidation.html</div>
+  </a>
+  <a class="card c-revue" href="RTA_CBNPC_revue.html">
+    <div class="card-title">RT adaptative — CBNPC à visée curative</div>
+    <span class="card-badge">Revue PubMed + ClinicalTrials.gov · octobre 2026</span>
+    <div class="card-desc">Typologie de l'adaptation ; SBRT des tumeurs centrales et ultracentrales (SMART / MR-linac) ; stade III : adaptation anatomique (CBCT, Ethos) et biologique (TEP per-traitement, RTOG 1106) ; essais en cours et lacunes.</div>
+    <div class="card-link">RTA_CBNPC_revue.html</div>
+  </a>
+</section>
 
-    <div class="card">
-        <h2>📊 Fichier Excel CTCAE v6</h2>
-        <p>
-            Fichier source de référence contenant le mapping CTCAE v6.
-        </p>
-        CTCAEv6.xlsx
-            Télécharger le fichier
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>📂 Dépôt GitHub</h2>
-        <p>
-            Accéder au code source et aux fichiers du projet.
-        </p>
-        <a class="button"
-           href="sket
-            Voir le dépôt
-        </a>
-    </div>
-
-</div>
-
-<footer>
-    CTCAE v6 Resources • GitHub Pages
+<footer class="footer">
+  <p><strong>Avertissement :</strong> documents de travail à usage personnel, pour la préparation des RCP ; ils ne se substituent ni au jugement clinique ni aux décisions collégiales.</p>
+  <p><strong>Voir aussi :</strong> dépôts <em>neuro</em> (neuro-oncologie) et <em>pedia</em> (oncologie pédiatrique).</p>
 </footer>
-
-</div>
 
 </body>
 </html>
