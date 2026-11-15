@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>NGGCT SNC — Récidive · Revue clinique 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+button { cursor: pointer; font-family: 'DM Sans', sans-serif; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── THÈME ── */
+:root {
+  --bg:       #0d1117;
+  --surface:  #161b22;
+  --surface2: #1c2330;
+  --surface3: #21262d;
+  --border:   #2a3441;
+  --border2:  #30363d;
+  --text:     #e6edf3;
+  --text2:    #8b949e;
+  --text3:    #6e7681;
+  --green:    #3fb950;
+  --blue:     #388bfd;
+  --red:      #f85149;
+  --yellow:   #d29922;
+  --purple:   #a371f7;
+  --orange:   #f0883e;
+  --cyan:     #39c5cf;
+  --accent:   #a371f7;
+  --accent-rgb: 163,113,247;
+  --radius:   10px;
+}
+body.light {
+  --bg:       #f5f0e8;
+  --surface:  #ffffff;
+  --surface2: #ede8dc;
+  --surface3: #e6e0d2;
+  --border:   #c8bfaa;
+  --border2:  #d4ccba;
+  --text:     #1a1208;
+  --text2:    #5a4f3a;
+  --text3:    #9a8f7a;
+  --green:    #2d7a3a;
+  --blue:     #1a5fa8;
+  --red:      #c0392b;
+  --yellow:   #a0720a;
+  --purple:   #6b3fa0;
+  --orange:   #c45a10;
+  --cyan:     #1a7a8a;
+  --accent:   #6b3fa0;
+}
+
+/* ── BASE ── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(13,17,23,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: nowrap;
+}
+body.light header { background: rgba(245,240,232,0.97); backdrop-filter: blur(10px); }
+.hdr-logo {
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--accent); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 8px;
+  color: var(--accent); font-weight: 500; flex-shrink: 0; letter-spacing: 0; text-align: center; line-height: 1.2;
+}
+.hdr-texts { flex: 1; min-width: 0; }
+.hdr-title {
+  font-family: 'DM Serif Display', serif; font-size: 15px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.hdr-sub { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text3); margin-top: 2px; }
+.hdr-badge {
+  font-family: 'DM Mono', monospace; font-size: 9px;
+  padding: 3px 10px; border-radius: 20px;
+  background: rgba(163,113,247,.1); border: 1px solid rgba(163,113,247,.3);
+  color: var(--accent); margin-left: auto; flex-shrink: 0; white-space: nowrap;
+}
+.hdr-disclaimer {
+  font-family: 'DM Mono', monospace; font-size: 8px; color: var(--text3);
+  flex-shrink: 0; max-width: 160px; text-align: right; line-height: 1.3;
+  display: none;
+}
+@media (min-width: 900px) { .hdr-disclaimer { display: block; } }
+.btn-theme {
+  width: 30px; height: 30px; border-radius: 6px;
+  border: 1px solid var(--border2); background: transparent;
+  color: var(--text2); font-size: 14px;
+  transition: all .18s; display: flex; align-items: center; justify-content: center;
+  margin-left: 8px; flex-shrink: 0;
+}
+.btn-theme:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── CONTAINER ── */
+.container { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+
+/* ── LANDING ── */
+.landing-intro { margin-bottom: 28px; }
+.landing-intro h1 {
+  font-family: 'DM Serif Display', serif; font-size: 26px;
+  margin-bottom: 6px; line-height: 1.3;
+}
+.landing-intro p { font-size: 13px; color: var(--text2); max-width: 640px; line-height: 1.6; }
+.alert-banner {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-top: 14px; margin-bottom: 4px;
+}
+.alert-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 20px;
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  border: 1px solid; white-space: nowrap;
+}
+.alert-pill.warn { background: rgba(240,136,62,.1); border-color: rgba(240,136,62,.35); color: var(--orange); }
+.alert-pill.info { background: rgba(56,139,253,.1); border-color: rgba(56,139,253,.3); color: var(--blue); }
+.alert-pill.rec  { background: rgba(163,113,247,.1); border-color: rgba(163,113,247,.3); color: var(--accent); }
+
+/* ── SECTION LABEL ── */
+.slabel {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: 2px; color: var(--text3);
+  text-transform: uppercase; margin-bottom: 14px; margin-top: 28px;
+}
+.slabel:first-of-type { margin-top: 0; }
+
+/* ── NAV GRID ── */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px; margin-bottom: 36px;
+}
+.nav-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px;
+  cursor: pointer; transition: all .2s; text-align: left;
+  position: relative; overflow: hidden;
+}
+.nav-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--accent);
+}
+.nav-card.purple::before { background: var(--purple); }
+.nav-card.blue::before   { background: var(--blue); }
+.nav-card.red::before    { background: var(--red); }
+.nav-card.yellow::before { background: var(--yellow); }
+.nav-card.cyan::before   { background: var(--cyan); }
+.nav-card:hover { border-color: var(--accent); background: var(--surface2); }
+body.light .nav-card:hover { background: #f8f4ee; }
+.nc-num  { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text3); letter-spacing: 1px; margin-bottom: 6px; }
+.nc-name { font-family: 'DM Serif Display', serif; font-size: 14px; line-height: 1.3; margin-bottom: 8px; color: var(--text); }
+.nc-dose { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 6px; }
+.nc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.nc-tag {
+  font-family: 'DM Mono', monospace; font-size: 8px; padding: 2px 6px; border-radius: 4px;
+}
+.nc-tag.p { background: rgba(163,113,247,.15); color: var(--purple); }
+.nc-tag.b { background: rgba(56,139,253,.12); color: var(--blue); }
+.nc-tag.r { background: rgba(248,81,73,.12); color: var(--red); }
+.nc-tag.y { background: rgba(210,153,34,.12); color: var(--yellow); }
+.nc-tag.c { background: rgba(57,197,207,.12); color: var(--cyan); }
+.nc-tag.o { background: rgba(240,136,62,.12); color: var(--orange); }
+
+/* ── PANELS ── */
+.panel { display: none; }
+.panel.active { display: block; }
+.back-btn {
+  background: none; border: 1px solid var(--border2);
+  color: var(--text2); border-radius: 6px; padding: 7px 14px;
+  font-size: 12px; margin-bottom: 22px; transition: all .18s;
+}
+.back-btn:hover { border-color: var(--accent); color: var(--accent); }
+.panel-header { margin-bottom: 28px; }
+.panel-header h2 {
+  font-family: 'DM Serif Display', serif; font-size: 22px;
+  line-height: 1.3; margin-bottom: 5px;
+}
+.panel-header p { font-size: 12px; color: var(--text2); max-width: 600px; line-height: 1.55; }
+
+/* ── RT TABLE ── */
+.rt-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; margin-bottom: 8px;
+}
+.rt-table th {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text3);
+  padding: 8px 12px; text-align: left;
+  border-bottom: 1px solid var(--border); background: var(--surface2);
+}
+.rt-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+  vertical-align: top; color: var(--text);
+}
+.rt-table tr:last-child td { border-bottom: none; }
+.rt-table tr:hover td { background: var(--surface2); }
+body.light .rt-table tr:hover td { background: #ede8dc; }
+.rt-dose { font-family: 'DM Mono', monospace; color: var(--blue); font-size: 12px; }
+.rt-dose.warn { color: var(--yellow); }
+.rt-dose.contra { color: var(--text3); font-style: italic; }
+.dose-tag {
+  display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px;
+  padding: 2px 7px; border-radius: 4px; margin-top: 3px;
+}
+.dose-tag.std  { background: rgba(56,139,253,.12); color: var(--blue); }
+.dose-tag.hdct { background: rgba(163,113,247,.12); color: var(--purple); }
+.dose-tag.exp  { background: rgba(210,153,34,.12); color: var(--yellow); }
+
+/* ── CHEMO TABLE ── */
+.ct {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; margin-bottom: 8px;
+}
+.ct th {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text3);
+  padding: 8px 12px; text-align: left;
+  border-bottom: 1px solid var(--border); background: var(--surface2);
+}
+.ct td {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+  vertical-align: top; color: var(--text);
+}
+.ct tr:last-child td { border-bottom: none; }
+.ct tr:hover td { background: var(--surface2); }
+body.light .ct tr:hover td { background: #ede8dc; }
+
+/* ── TRIALS GRID ── */
+.trials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 12px; margin-bottom: 8px; }
+.trial-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px;
+  position: relative; overflow: hidden;
+}
+body.light .trial-card { box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.trial-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.trial-card.recruiting::before    { background: var(--green); }
+.trial-card.active-nr::before     { background: var(--blue); }
+.trial-card.completed::before     { background: var(--text3); }
+.tc-nct {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  color: var(--accent); margin-bottom: 6px;
+}
+.tc-nct a { color: var(--accent); }
+.tc-title { font-size: 12px; font-weight: 500; margin-bottom: 6px; line-height: 1.4; }
+.tc-status {
+  font-family: 'DM Mono', monospace; font-size: 9px;
+  padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px;
+}
+.tc-status.rec  { background: rgba(63,185,80,.15); color: var(--green); }
+.tc-status.anr  { background: rgba(56,139,253,.12); color: var(--blue); }
+.tc-status.comp { background: rgba(110,118,129,.15); color: var(--text3); }
+.tc-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+.th-rt  { background: rgba(57,197,207,.12); color: var(--cyan);   font-size: 9px; padding: 1px 6px; border-radius: 3px; font-family: 'DM Mono'; }
+.th-ct  { background: rgba(163,113,247,.12); color: var(--purple); font-size: 9px; padding: 1px 6px; border-radius: 3px; font-family: 'DM Mono'; }
+.th-sg  { background: rgba(210,153,34,.12); color: var(--yellow); font-size: 9px; padding: 1px 6px; border-radius: 3px; font-family: 'DM Mono'; }
+.th-im  { background: rgba(248,81,73,.12); color: var(--red);    font-size: 9px; padding: 1px 6px; border-radius: 3px; font-family: 'DM Mono'; }
+.tc-context { font-size: 11px; color: var(--text2); line-height: 1.45; }
+
+/* ── SIGNAL BOX ── */
+.signal-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius); padding: 16px 18px;
+  font-size: 12px; line-height: 1.65; color: var(--text2);
+  margin-bottom: 8px;
+}
+body.light .signal-box { color: #3a2e1a; }
+.signal-hl  { color: var(--accent); font-weight: 600; }
+.signal-hl2 { color: var(--blue); font-weight: 600; }
+.signal-hl3 { color: var(--yellow); font-weight: 600; }
+.signal-hl4 { color: var(--red); font-weight: 600; }
+
+/* ── REFS ── */
+.refs-list { display: flex; flex-direction: column; gap: 10px; }
+.ref-item {
+  display: flex; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 14px;
+}
+.ref-num {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  color: var(--accent); min-width: 18px; flex-shrink: 0; padding-top: 1px;
+}
+.ref-authors { font-size: 11px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.ref-title-text { font-size: 11px; color: var(--text2); margin-bottom: 3px; line-height: 1.4; }
+.ref-journal { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); margin-bottom: 3px; }
+.ref-doi a { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--blue); }
+.ref-note { font-size: 11px; color: var(--text3); margin-top: 3px; border-top: 1px solid var(--border); padding-top: 4px; line-height: 1.4; }
+.ref-badge {
+  display: inline-block; font-family: 'DM Mono', monospace; font-size: 8px;
+  padding: 1px 6px; border-radius: 3px; margin-left: 6px;
+}
+.ref-badge.green  { background: rgba(63,185,80,.15); color: var(--green); }
+.ref-badge.yellow { background: rgba(210,153,34,.12); color: var(--yellow); }
+.ref-badge.red    { background: rgba(248,81,73,.12); color: var(--red); }
+.ref-recur { color: var(--orange); margin-right: 4px; }
+
+/* ── CMP TABLE (comparatif) ── */
+.cmp-block { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 8px; }
+.cmp-row { display: grid; grid-template-columns: 180px 1fr 1fr; border-bottom: 1px solid var(--border); }
+.cmp-row:last-child { border-bottom: none; }
+.cmp-row.cmp-header .cmp-label,
+.cmp-row.cmp-header .cmp-val {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text3); background: var(--surface2);
+}
+.cmp-label { padding: 10px 12px; font-size: 11px; color: var(--text2); background: var(--surface2); border-right: 1px solid var(--border); font-weight: 500; }
+.cmp-val   { padding: 10px 12px; font-size: 11px; color: var(--text); border-right: 1px solid var(--border); }
+.cmp-val:last-child { border-right: none; }
+.cmp-row:hover .cmp-label,
+.cmp-row:hover .cmp-val { background: var(--surface3); }
+.cmp-row.cmp-header:hover .cmp-label,
+.cmp-row.cmp-header:hover .cmp-val { background: var(--surface2); }
+@media (max-width: 640px) {
+  .cmp-row { grid-template-columns: 1fr; }
+  .cmp-label { border-right: none; border-bottom: 1px solid var(--border); font-size: 10px; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 1px; }
+}
+
+/* ── PROGNOSIS PILLS ── */
+.prog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap: 10px; margin-bottom: 8px; }
+.prog-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 12px 14px;
+  text-align: center;
+}
+.prog-val { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; margin-bottom: 2px; }
+.prog-lbl { font-size: 10px; color: var(--text3); line-height: 1.3; }
+.prog-pill.good .prog-val { color: var(--green); }
+.prog-pill.mid  .prog-val { color: var(--yellow); }
+.prog-pill.bad  .prog-val { color: var(--red); }
+
+/* ── ALGO TABLE ── */
+.algo-table {
+  width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 8px;
+}
+.algo-table th {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text3);
+  padding: 8px 12px; text-align: left;
+  border-bottom: 1px solid var(--border); background: var(--surface2);
+}
+.algo-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.algo-table tr:last-child td { border-bottom: none; }
+.algo-table tr:hover td { background: var(--surface2); }
+.step-num {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  color: var(--accent); font-weight: 500;
+}
+.step-action { font-weight: 500; margin-bottom: 3px; }
+.step-detail { font-size: 11px; color: var(--text2); line-height: 1.45; }
+.step-branch {
+  display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px;
+  padding: 2px 7px; border-radius: 4px; margin-top: 3px; margin-right: 4px;
+}
+.branch-go  { background: rgba(63,185,80,.15); color: var(--green); }
+.branch-go2 { background: rgba(56,139,253,.12); color: var(--blue); }
+.branch-bad { background: rgba(248,81,73,.12); color: var(--red); }
+.branch-esc { background: rgba(210,153,34,.12); color: var(--yellow); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ HEADER ═══════════════════════════════════ -->
+<header>
+  <div class="hdr-logo">NG<br>GCT</div>
+  <div class="hdr-texts">
+    <div class="hdr-title">TGM sécrétantes SNC — Prise en charge à la récidive</div>
+    <div class="hdr-sub">Revue clinique pédiatrique · SIOP / EANO-SNO / COG · 2025</div>
+  </div>
+  <span class="hdr-badge">Récidive · 2025</span>
+  <div class="hdr-disclaimer">Usage clinique interne<br>Non substitut RCP</div>
+  <button class="btn-theme" id="btn-theme" onclick="toggleTheme()" title="Passer en mode clair">◑</button>
+</header>
+
+<!-- ═══════════════════════════════════ LANDING ═══════════════════════════════════ -->
+<div id="landing">
+<div class="container">
+
+  <div class="landing-intro">
+    <h1>NGGCT SNC sécrétantes — Récidive</h1>
+    <p>Synthèse de la prise en charge des tumeurs germinales malignes non-germinomateuses (NGGCT) sécrétantes du SNC à la récidive, contexte pédiatrique. Taux de rechute 16–47% après traitement standard. Stratégie de référence : re-induction GemPOx → HDC + autogreffe.</p>
+    <div class="alert-banner">
+      <span class="alert-pill warn">⚠ Pas de standard randomisé — données de séries rétrospectives</span>
+      <span class="alert-pill rec">🏥 RCP RENOCLIP-LOC / SFCE obligatoire</span>
+      <span class="alert-pill info">📋 HDC+SCT indispensable à visée curative</span>
+    </div>
+  </div>
+
+  <div class="slabel">Modules de revue</div>
+  <div class="nav-grid">
+    <div class="nav-card purple" onclick="show('pronostic')">
+      <div class="nc-num">01</div>
+      <div class="nc-name">Pronostic & Facteurs de risque</div>
+      <div class="nc-dose">5y OS 9–60 %</div>
+      <div class="nc-tags">
+        <span class="nc-tag p">NGGCT</span>
+        <span class="nc-tag r">Récidive</span>
+      </div>
+    </div>
+    <div class="nav-card blue" onclick="show('reinduction')">
+      <div class="nc-num">02</div>
+      <div class="nc-name">Re-induction — GemPOx</div>
+      <div class="nc-dose">Paclitaxel + Gem + Oxali</div>
+      <div class="nc-tags">
+        <span class="nc-tag b">Phase II</span>
+        <span class="nc-tag p">CNS-GCT-4</span>
+      </div>
+    </div>
+    <div class="nav-card yellow" onclick="show('hdct')">
+      <div class="nc-num">03</div>
+      <div class="nc-name">HDC + Autogreffe</div>
+      <div class="nc-dose">TEC / CarbTE</div>
+      <div class="nc-tags">
+        <span class="nc-tag y">Consolidation</span>
+        <span class="nc-tag p">SCT</span>
+      </div>
+    </div>
+    <div class="nav-card cyan" onclick="show('rt')">
+      <div class="nc-num">04</div>
+      <div class="nc-name">Radiothérapie à la récidive</div>
+      <div class="nc-dose">Re-irradiation / SRS</div>
+      <div class="nc-tags">
+        <span class="nc-tag c">Re-RT</span>
+        <span class="nc-tag b">SRS</span>
+      </div>
+    </div>
+    <div class="nav-card red" onclick="show('algo')">
+      <div class="nc-num">05</div>
+      <div class="nc-name">Algorithme décisionnel</div>
+      <div class="nc-dose">Séquence pas-à-pas</div>
+      <div class="nc-tags">
+        <span class="nc-tag r">Décision</span>
+        <span class="nc-tag o">RCP</span>
+      </div>
+    </div>
+    <div class="nav-card" onclick="show('essais')">
+      <div class="nc-num">06</div>
+      <div class="nc-name">Essais cliniques</div>
+      <div class="nc-dose">NCT actifs 2024–2025</div>
+      <div class="nc-tags">
+        <span class="nc-tag p">CAR-T</span>
+        <span class="nc-tag b">GemPOx</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tableau comparatif cross-entités -->
+  <div class="slabel">Germinome vs NGGCT rechutés — Comparaison des résultats</div>
+  <div class="cmp-block">
+    <div class="cmp-row cmp-header">
+      <div class="cmp-label">Paramètre</div>
+      <div class="cmp-val">Germinome rechutté</div>
+      <div class="cmp-val">NGGCT rechutté (sécrétant)</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">5y EFS post-rechute</div>
+      <div class="cmp-val" style="color:var(--green)">56–79 %</div>
+      <div class="cmp-val" style="color:var(--red)">14–60 %</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">5y OS post-rechute</div>
+      <div class="cmp-val" style="color:var(--green)">60–86 %</div>
+      <div class="cmp-val" style="color:var(--yellow)">9–60 %</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">Stratégie standard</div>
+      <div class="cmp-val">Re-irradiation ± chimiothérapie</div>
+      <div class="cmp-val">GemPOx × 2–4 → HDC + autogreffe</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">Curabilité possible</div>
+      <div class="cmp-val" style="color:var(--green)">Oui (majorité)</div>
+      <div class="cmp-val" style="color:var(--yellow)">Oui si RC avant greffe (~40–60 %)</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">Facteur pronostique clé</div>
+      <div class="cmp-val">Site de rechute (irradié vs non)</div>
+      <div class="cmp-val">Qualité réponse à la re-induction</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">Source</div>
+      <div class="cmp-val" style="font-size:10px;color:var(--text3)">Murray 2017 / Callec 2020</div>
+      <div class="cmp-val" style="font-size:10px;color:var(--text3)">Murray 2017 / Callec 2020 / Abu-Arja 2022</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════ PANEL — PRONOSTIC ═══════════════ -->
+<div id="panel-pronostic" class="panel">
+<div class="container">
+  <button class="back-btn" onclick="back()">← Retour</button>
+  <div class="panel-header">
+    <h2>Pronostic & Facteurs de risque</h2>
+    <p>Données issues de 9 études (Abu-Arja 2022, méta-analyse) et des séries UK/Allemagne (Murray 2017) et française (Callec 2020).</p>
+  </div>
+
+  <div class="slabel">Chiffres clés — NGGCT sécrétants rechutés</div>
+  <div class="prog-grid">
+    <div class="prog-pill bad"><div class="prog-val">9–60 %</div><div class="prog-lbl">5y OS<br>toutes séries confondues</div></div>
+    <div class="prog-pill mid"><div class="prog-val">~40–60 %</div><div class="prog-lbl">5y OS si RC<br>avant autogreffe</div></div>
+    <div class="prog-pill bad"><div class="prog-val">&lt; 20 %</div><div class="prog-lbl">5y OS sans RC<br>pré-greffe ou sans HDC</div></div>
+    <div class="prog-pill bad"><div class="prog-val">~14 %</div><div class="prog-lbl">5y OS<br>NGGCT réfractaires (Murray 2017)</div></div>
+    <div class="prog-pill mid"><div class="prog-val">23 %</div><div class="prog-lbl">Taux de rechute<br>SIOP CNS GCT 96 (n=116)</div></div>
+    <div class="prog-pill bad"><div class="prog-val">16–47 %</div><div class="prog-lbl">Taux de rechute<br>toutes séries NGGCT</div></div>
+  </div>
+
+  <div class="slabel">Facteurs pronostiques défavorables à la récidive</div>
+  <table class="rt-table">
+    <thead>
+      <tr><th>Facteur</th><th>Impact</th><th>Source</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Absence de RC après re-induction</strong></td>
+        <td>Facteur le plus discriminant — survie &lt; 20 % sans RC pré-greffe</td>
+        <td style="font-family:'DM Mono';font-size:10px;color:var(--text3)">Callec 2020, Murray 2017</td>
+      </tr>
+      <tr>
+        <td><strong>Histologie NGGCT vs germinome</strong></td>
+        <td>NGGCT rechutté : OS 5y 9–60 % vs 60–86 % pour germinome rechutté</td>
+        <td style="font-family:'DM Mono';font-size:10px;color:var(--text3)">Murray 2017 [🔁]</td>
+      </tr>
+      <tr>
+        <td><strong>AFP initial &gt; 1000 ng/mL</strong></td>
+        <td>Facteur défavorable en 1ère ligne et à la rechute (Calaminus 2017)</td>
+        <td style="font-family:'DM Mono';font-size:10px;color:var(--text3)">Calaminus 2017 [🔁]</td>
+      </tr>
+      <tr>
+        <td><strong>Rechute précoce (&lt; 12 mois)</strong></td>
+        <td>Associée à résistance chimiorésistance et mauvais pronostic</td>
+        <td style="font-family:'DM Mono';font-size:10px;color:var(--text3)">Abu-Arja 2022</td>
+      </tr>
+      <tr>
+        <td><strong>Rechute locale (site irradié)</strong></td>
+        <td>Tendance défavorable vs rechute à site non irradié (5y EFS 67 % vs 100 %, p=0.09)</td>
+        <td style="font-family:'DM Mono';font-size:10px;color:var(--text3)">Callec 2020 [🔁]</td>
+      </tr>
+      <tr>
+        <td><strong>Résidu macroscopique en fin de 1ère ligne</strong></td>
+        <td>Risque de rechute augmenté — résection recommandée si possible (Calaminus 2017)</td>
+        <td style="font-family:'DM Mono';font-size:10px;color:var(--text3)">Calaminus 2017</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Patterns de rechute (SIOP CNS GCT 96)</div>
+  <div class="cmp-block">
+    <div class="cmp-row cmp-header">
+      <div class="cmp-label">Type rechute</div>
+      <div class="cmp-val">N cas</div>
+      <div class="cmp-val">Commentaire</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">Locale</div>
+      <div class="cmp-val">14 / 27</div>
+      <div class="cmp-val">Site primitif — irradié dans la majorité des cas</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">Combinée (locale + distance)</div>
+      <div class="cmp-val">6 / 27</div>
+      <div class="cmp-val">Pronostic défavorable</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">À distance (hors champ RT)</div>
+      <div class="cmp-val">7 / 27</div>
+      <div class="cmp-val">Spinale ou ventriculaire — meilleur pronostic relatif si site non irradié</div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-label">Décès par maladie</div>
+      <div class="cmp-val">17 / 27</div>
+      <div class="cmp-val">Mortalité élevée malgré traitement de rattrapage</div>
+    </div>
+  </div>
+
+  <div class="slabel">Signal clinique 2025</div>
+  <div class="signal-box">
+    La rechute des <span class="signal-hl">NGGCT sécrétants reste un événement de pronostic sévère</span>, avec une hétérogénéité majeure entre les séries liée à la sélection des patients (certaines séries incluent des patients HDC-éligibles uniquement). Le <span class="signal-hl2">facteur pronostique le plus discriminant reste la qualité de la réponse à la re-induction</span> avant l'autogreffe : une RC ou RP significative est indispensable pour bénéficier de la procédure. Abu-Arja et al. (2022) ont compilé 9 études (n=101) et confirment que <span class="signal-hl3">ni l'AFP initial, ni le délai de rechute ne permettent à eux seuls de prédire la réponse au traitement de rattrapage</span> — la décision de HDC doit être individualisée en RCP internationale.
+  </div>
+
+  <div class="slabel">Références</div>
+  <div class="refs-list">
+    <div class="ref-item">
+      <span class="ref-num"><span class="ref-recur">🔁</span>1</span>
+      <div class="ref-body">
+        <div class="ref-authors">Murray MJ, Bailey S, Heinemann K et al.</div>
+        <div class="ref-title-text">Treatment and outcomes of UK and German patients with relapsed intracranial germ cell tumors following uniform first-line therapy<span class="ref-badge yellow">Série rétrospective</span></div>
+        <div class="ref-journal">Int J Cancer 2017;141(3):621–635</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1002/ijc.30755" target="_blank">10.1002/ijc.30755</a></div>
+        <div class="ref-note">n=44 rechutes (14 germinomes, 25 NGGCT) · NGGCT 5y EFS 56%, OS 60% · HDC+SCT nécessaire · Référence fondatrice récidive</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num"><span class="ref-recur">🔁</span>2</span>
+      <div class="ref-body">
+        <div class="ref-authors">Callec L, Rech F, Chastagner P et al.</div>
+        <div class="ref-title-text">Relapsing intracranial germ cell tumours warrant retreatment<span class="ref-badge yellow">Série rétrospective</span></div>
+        <div class="ref-journal">Eur J Cancer 2020;136:186–194</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1016/j.ejca.2020.05.024" target="_blank">10.1016/j.ejca.2020.05.024</a></div>
+        <div class="ref-note">n=44 rechutes · NGGCT 5y EFS 56%, OS 60% · HDC+SCT absolument nécessaire à visée curative</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num">3</span>
+      <div class="ref-body">
+        <div class="ref-authors">Abu-Arja MH, Osorio DS, Lassaletta A et al.</div>
+        <div class="ref-title-text">Prognostic factors for patients with relapsed central nervous system nongerminomatous germ cell tumors<span class="ref-badge yellow">Méta-analyse</span></div>
+        <div class="ref-journal">Pediatr Blood Cancer 2022;69(1):e29365</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1002/pbc.29365" target="_blank">10.1002/pbc.29365</a></div>
+        <div class="ref-note">9 études, n=101 · Seule synthèse quantitative des FP à la récidive · RC pré-greffe = facteur discriminant principal</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num"><span class="ref-recur">🔁</span>4</span>
+      <div class="ref-body">
+        <div class="ref-authors">Calaminus G, Frappaz D, Kortmann RD et al.</div>
+        <div class="ref-title-text">Outcome of patients with intracranial non-germinomatous germ cell tumors — lessons from the SIOP-CNS-GCT-96 trial<span class="ref-badge yellow">Série prospective</span></div>
+        <div class="ref-journal">Neuro-Oncology 2017;19(12):1661–1672</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1093/neuonc/nox122" target="_blank">10.1093/neuonc/nox122</a></div>
+        <div class="ref-note">n=116 NGGCT · 23% rechute · 5y EFS 72% (M0), 68% (M+) · AFP>1000 = FP défavorable</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PANEL — RE-INDUCTION ═══════════════ -->
+<div id="panel-reinduction" class="panel">
+<div class="container">
+  <button class="back-btn" onclick="back()">← Retour</button>
+  <div class="panel-header">
+    <h2>Re-induction — Régime GemPOx</h2>
+    <p>Le régime GemPOx (Gemcitabine + Paclitaxel + Oxaliplatine) est le standard actuel de re-induction pour les NGGCT sécrétants rechutés, depuis la publication du trial phase II NEXT/CNS-GCT-4 en 2024.</p>
+  </div>
+
+  <div class="slabel">Régime GemPOx — Doses et administration</div>
+  <table class="ct">
+    <thead>
+      <tr><th>Agent</th><th>Dose</th><th>Jour</th><th>Voie</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Paclitaxel</strong></td>
+        <td><span class="rt-dose">170 mg/m²</span></td>
+        <td>J1</td>
+        <td>IV — perfusion 3h (en premier)</td>
+      </tr>
+      <tr>
+        <td><strong>Gemcitabine</strong></td>
+        <td><span class="rt-dose">800 mg/m²</span></td>
+        <td>J1</td>
+        <td>IV — après paclitaxel</td>
+      </tr>
+      <tr>
+        <td><strong>Oxaliplatine</strong></td>
+        <td><span class="rt-dose">100 mg/m²</span></td>
+        <td>J1</td>
+        <td>IV — après gemcitabine (2h)</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="font-size:11px;color:var(--text2)">
+          Cycle de <strong>14 jours</strong> · Maximum 4 cycles · G-CSF si nécessaire · Mobilisation CSH possible dès J5–J8
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Résultats du trial NEXT / CNS-GCT-4 (Phase II, Finlay 2024)</div>
+  <div class="prog-grid">
+    <div class="prog-pill mid"><div class="prog-val">7/9</div><div class="prog-lbl">Répondeurs objectifs<br>au GemPOx (78%)</div></div>
+    <div class="prog-pill mid"><div class="prog-val">4/9</div><div class="prog-lbl">Vivants sans maladie<br>à suivi médian 44 mois</div></div>
+    <div class="prog-pill bad"><div class="prog-val">2/9</div><div class="prog-lbl">Progression<br>sous GemPOx</div></div>
+  </div>
+
+  <div class="slabel">Autres régimes de re-induction (historiques / 2e choix)</div>
+  <table class="ct">
+    <thead>
+      <tr><th>Régime</th><th>Agents</th><th>Contexte d'utilisation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ICE</strong></td>
+        <td>Ifosfamide + Carboplatine + Étoposide</td>
+        <td>Si traitement initial sans ifosfamide — données CNS limitées</td>
+      </tr>
+      <tr>
+        <td><strong>TIP</strong></td>
+        <td>Paclitaxel + Ifosfamide + Cisplatine</td>
+        <td>Données issues des GCT gonadiques — peu de données SNC</td>
+      </tr>
+      <tr>
+        <td><strong>VIP</strong></td>
+        <td>Vinblastine + Ifosfamide + Cisplatine</td>
+        <td>Historique — moins utilisé actuellement</td>
+      </tr>
+      <tr>
+        <td><strong>CarboPEI</strong></td>
+        <td>Carboplatine + Étoposide + Ifosfamide</td>
+        <td>Variante — utilisé dans certains protocoles KSPNO</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Toxicités GemPOx — à surveiller</div>
+  <table class="rt-table">
+    <thead>
+      <tr><th>Toxicité</th><th>Grade / Fréquence</th><th>Commentaire</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Myélosuppression</strong></td>
+        <td><span class="rt-dose warn">Grade III/IV · fréquente</span></td>
+        <td>Toxicité principale — G-CSF prophylactique recommandé</td>
+      </tr>
+      <tr>
+        <td><strong>Cytolyse hépatique</strong></td>
+        <td>Transitoire · grade I-II habituel</td>
+        <td>Surveillance transaminases J8 et J14</td>
+      </tr>
+      <tr>
+        <td><strong>Veno-occlusive disease (SOS)</strong></td>
+        <td><span class="rt-dose warn">Rare — cas pédiatrique 2025</span></td>
+        <td>⚠ Case report (Ortiz et al., PBC 2025) — attention si conditionnement HDC ensuite</td>
+      </tr>
+      <tr>
+        <td><strong>Neuropathie périphérique</strong></td>
+        <td>Paclitaxel + Oxaliplatine — cumulative</td>
+        <td>Surveillance clinique à chaque cycle</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Signal clinique 2025</div>
+  <div class="signal-box">
+    Le <span class="signal-hl">GemPOx est devenu le standard de re-induction</span> pour les NGGCT SNC rechutés depuis la publication du trial de phase II NEXT/CNS-GCT-4 (NCT01270724) par Finlay et al. dans Neuro-Oncology Practice en 2024. L'avantage clé est la <span class="signal-hl2">compatibilité avec la mobilisation des cellules souches hématopoïétiques</span>, permettant d'enchaîner directement avec l'autogreffe chez les répondeurs. Un <span class="signal-hl3">cas de maladie veno-occlusive hépatique pédiatrique (SOS)</span> sous GemPOx a été rapporté en 2025 (Ortiz et al., PBC) — à surveiller notamment si un conditionnement thiotepa est prévu ensuite.
+  </div>
+
+  <div class="slabel">Références</div>
+  <div class="refs-list">
+    <div class="ref-item">
+      <span class="ref-num">1</span>
+      <div class="ref-body">
+        <div class="ref-authors">Finlay JL et al. (NEXT/CNS-GCT-4)</div>
+        <div class="ref-title-text">Final report of the phase II NEXT/CNS-GCT-4 trial: GemPOx followed by marrow-ablative chemotherapy for recurrent intracranial germ cell tumors<span class="ref-badge green">Phase II</span></div>
+        <div class="ref-journal">Neuro-Oncology Practice 2024 (advance)</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1093/nop/npad067" target="_blank">10.1093/nop/npad067</a></div>
+        <div class="ref-note">n=9 · 7/9 répondeurs · suivi médian 44 mois · 4 patients vivants sans maladie · Référence prospective GemPOx</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num">2</span>
+      <div class="ref-body">
+        <div class="ref-authors">Perez-Somarriba M, Moreno-Tejero ML, Lassaletta A et al.</div>
+        <div class="ref-title-text">Gemcitabine, Paclitaxel, and Oxaliplatin (GemPOx) in the treatment of relapsed/refractory intracranial NGGCT<span class="ref-badge yellow">Données de cas</span></div>
+        <div class="ref-journal">Pediatr Blood Cancer 2020;67(2):e28089</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1002/pbc.28089" target="_blank">10.1002/pbc.28089</a></div>
+        <div class="ref-note">Série espagnole · 3 patients · normalisation marqueurs · réponse documentée</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num">3</span>
+      <div class="ref-body">
+        <div class="ref-authors">Ortiz et al.</div>
+        <div class="ref-title-text">Gemcitabine and Oxaliplatin-induced Veno-Occlusive Disease in a Pediatric Patient With Multiply Relapsed Germ Cell Tumor<span class="ref-badge red">Case report</span></div>
+        <div class="ref-journal">Pediatr Blood Cancer 2025</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1002/pbc.31945" target="_blank">10.1002/pbc.31945</a></div>
+        <div class="ref-note">⚠ SOS/VOD sous GemPOx — surveillance hépatique renforcée recommandée</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PANEL — HDC ═══════════════ -->
+<div id="panel-hdct" class="panel">
+<div class="container">
+  <button class="back-btn" onclick="back()">← Retour</button>
+  <div class="panel-header">
+    <h2>HDC + Autogreffe — Consolidation</h2>
+    <p>La chimiothérapie haute dose (HDC) avec autogreffe de cellules souches hématopoïétiques est indispensable à visée curative pour les NGGCT sécrétants rechutés ayant répondu à la re-induction.</p>
+  </div>
+
+  <div class="slabel">Conditionnements HDC — Régimes en usage</div>
+  <table class="ct">
+    <thead>
+      <tr><th>Régime</th><th>Agents — Doses</th><th>Utilisé par</th><th>Contexte</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>TEC</strong><br><span class="dose-tag hdct">Référence SFOP</span></td>
+        <td>
+          Thiotepa <span class="rt-dose">300 mg/m²/j × 3</span><br>
+          Étoposide <span class="rt-dose">500 mg/m²/j × 3</span><br>
+          Carboplatine selon AUC
+        </td>
+        <td style="font-size:11px;color:var(--text3)">SFOP TGM 92 / SFCE / Callec 2020</td>
+        <td style="font-size:11px;color:var(--text2)">Régime de référence français — le plus documenté en SNC</td>
+      </tr>
+      <tr>
+        <td><strong>CarbTE</strong><br><span class="dose-tag hdct">COG / KSPNO</span></td>
+        <td>
+          Carboplatine + Thiotepa + Étoposide<br>
+          <span style="font-size:11px;color:var(--text3)">(doses variables selon protocole)</span>
+        </td>
+        <td style="font-size:11px;color:var(--text3)">COG · KSPNO S-053</td>
+        <td style="font-size:11px;color:var(--text2)">Variante — outcomes comparables dans les séries asiatiques</td>
+      </tr>
+      <tr>
+        <td><strong>Tandem HDC</strong><br><span class="dose-tag exp">Expérimental</span></td>
+        <td>
+          2 cycles consécutifs (TTC → MEC ou similaire)
+        </td>
+        <td style="font-size:11px;color:var(--text3)">SIOP GCT II — sous-groupe haut risque (AFP>1000, âge&lt;6 ans)</td>
+        <td style="font-size:11px;color:var(--text2)">Données préliminaires — réservé aux profils à très haut risque en RCP</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Critères d'éligibilité à l'autogreffe</div>
+  <table class="rt-table">
+    <thead>
+      <tr><th>Critère</th><th>Seuil / Condition</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Réponse à la re-induction</strong></td>
+        <td>RC ou RP significative (marqueurs en baisse ≥ 90 % ou normalisés) — indispensable</td>
+      </tr>
+      <tr>
+        <td><strong>Collecte cellules souches</strong></td>
+        <td>CD34+ ≥ 2×10⁶/kg — mobilisation après GemPOx (G-CSF J5–J8 du dernier cycle)</td>
+      </tr>
+      <tr>
+        <td><strong>Fonction organique</strong></td>
+        <td>Créatinine, bilirubine, ASAT/ALAT dans les limites — attention SOS post-GemPOx</td>
+      </tr>
+      <tr>
+        <td><strong>Statut général</strong></td>
+        <td>Lansky ≥ 60 % (enfant) ou Karnofsky ≥ 60 % — seuil habituel, à adapter en RCP</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Données de survie après HDC+SCT — NGGCT SNC rechutés</div>
+  <div class="prog-grid">
+    <div class="prog-pill mid"><div class="prog-val">~40–60 %</div><div class="prog-lbl">5y OS si RC<br>avant greffe</div></div>
+    <div class="prog-pill bad"><div class="prog-val">&lt; 20 %</div><div class="prog-lbl">5y OS si RP partielle<br>ou résidu avant greffe</div></div>
+    <div class="prog-pill good"><div class="prog-val">3 %</div><div class="prog-lbl">TRM à J100<br>(données poolées séries HDC CNS)</div></div>
+  </div>
+
+  <div class="slabel">RT post-autogreffe — rôle non standardisé</div>
+  <div class="signal-box">
+    La place de la <span class="signal-hl">radiothérapie adjuvante après autogreffe reste débattue</span> dans les NGGCT SNC rechutés. Dans le trial CNS-GCT-4 (GemPOx), la décision d'irradier après HDC était laissée à l'appréciation du centre. Chez les patients <span class="signal-hl2">non irradiés en première ligne</span> (rare), une RT systématique post-greffe est logique. Chez les patients ayant déjà reçu une <span class="signal-hl3">irradiation crânio-spinale (CSI) ou focale 54 Gy</span>, la re-irradiation doit être discutée au cas par cas selon le volume résiduel, le site de rechute et les doses cumulées aux OAR critiques.
+  </div>
+
+  <div class="slabel">Références</div>
+  <div class="refs-list">
+    <div class="ref-item">
+      <span class="ref-num"><span class="ref-recur">🔁</span>1</span>
+      <div class="ref-body">
+        <div class="ref-authors">Callec L et al.</div>
+        <div class="ref-title-text">Relapsing intracranial germ cell tumours warrant retreatment<span class="ref-badge yellow">Série rétrospective</span></div>
+        <div class="ref-journal">Eur J Cancer 2020;136:186–194</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1016/j.ejca.2020.05.024" target="_blank">10.1016/j.ejca.2020.05.024</a></div>
+        <div class="ref-note">Régime TEC (thiotepa 300 mg/m²/j × 3 + étoposide 500 mg/m²/j × 3) · n=25 NGGCT rechutés</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num">2</span>
+      <div class="ref-body">
+        <div class="ref-authors">Frappaz D, Dhall G, Murray MJ et al. (EANO, SNO, Euracan)</div>
+        <div class="ref-title-text">Consensus review on the current management of intracranial GCTs in adolescents and young adults<span class="ref-badge green">Guideline / Consensus</span></div>
+        <div class="ref-journal">Neuro-Oncology 2022;24(4):516–527</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1093/neuonc/noab252" target="_blank">10.1093/neuonc/noab252</a></div>
+        <div class="ref-note">🔁 Consensus de référence · HDC thiotepa-based recommandé · 5y OS post-rechute NGGCT 9–60 %</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PANEL — RT ═══════════════ -->
+<div id="panel-rt" class="panel">
+<div class="container">
+  <button class="back-btn" onclick="back()">← Retour</button>
+  <div class="panel-header">
+    <h2>Radiothérapie à la récidive</h2>
+    <p>La stratégie de re-irradiation dépend du traitement initial reçu, du site de rechute et des doses cumulées. Elle joue un rôle central dans les germinomes rechutés, et un rôle adjuvant moins défini dans les NGGCT.</p>
+  </div>
+
+  <div class="slabel">Stratégies RT selon contexte</div>
+  <table class="rt-table">
+    <thead>
+      <tr><th>Situation</th><th>Stratégie RT</th><th>Doses</th><th>Remarque</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NGGCT rechutté — RT initiale focale (54 Gy)</strong></td>
+        <td><span class="rt-dose warn">Re-irradiation limitée à discuter</span></td>
+        <td>Dépend du site de rechute et dose cumulée aux OAR</td>
+        <td>Décision en RCP internationale — objectif : complément après HDC+SCT</td>
+      </tr>
+      <tr>
+        <td><strong>NGGCT rechutté — RT initiale CSI complète</strong></td>
+        <td><span class="rt-dose contra">Re-irradiation crânio-spinale non recommandée</span></td>
+        <td>Dose spinale cumulée limitante</td>
+        <td>Envisager SRS/SBRT sur sites résiduels limités uniquement</td>
+      </tr>
+      <tr>
+        <td><strong>Rechute à un site non irradié (spinale isolée)</strong></td>
+        <td><span class="rt-dose">RT spinale focale envisageable</span></td>
+        <td>30–36 Gy / 1.5–2 Gy par fraction</td>
+        <td>Meilleur pronostic relatif (Callec 2020 : site non irradié → 5y EFS 100 %)</td>
+      </tr>
+      <tr>
+        <td><strong>Volume résiduel limité post-HDC</strong></td>
+        <td><span class="rt-dose">SRS / SBRT stéréotaxique</span></td>
+        <td>15–24 Gy en dose unique ou SBRT 3–5 fractions selon volume</td>
+        <td>Données de cas publiées — à discuter si OAR protégés</td>
+      </tr>
+      <tr>
+        <td><strong>Germinome rechutté (pour comparaison)</strong></td>
+        <td><span class="rt-dose">Re-irradiation WVI ou CSI</span></td>
+        <td>WVI 24 Gy + boost 16 Gy (si non irradié) — réduit si rechute hors champ</td>
+        <td>Callec 2020 : 1/11 rechute supplémentaire après re-irradiation · Efficacité établie</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Données sur la re-irradiation des NGGCT rechutés</div>
+  <div class="signal-box">
+    Contrairement aux <span class="signal-hl">germinomes rechutés où la re-irradiation est très efficace</span> (Murray 2017 : 10/11 patients en RC durable après re-RT), le rôle de la radiothérapie dans les <span class="signal-hl4">NGGCT sécrétants rechutés est moins bien défini</span>. Les données publiées proviennent quasi-exclusivement de séries rétrospectives où la RT était intégrée dans un schéma multimodal incluant HDC+SCT, rendant impossible l'évaluation de son apport propre. La <span class="signal-hl2">stéréotaxie (SRS/SBRT)</span> peut être envisagée pour des résidus limités post-autogreffe, notamment si la dose initiale ne couvrait pas le site de rechute, mais les données restent au niveau du <span class="signal-hl3">cas clinique ou de courte série</span>. La décision doit impérativement être discutée en RCP avec des centres experts (RENOCLIP-LOC).
+  </div>
+
+  <div class="slabel">Références</div>
+  <div class="refs-list">
+    <div class="ref-item">
+      <span class="ref-num"><span class="ref-recur">🔁</span>1</span>
+      <div class="ref-body">
+        <div class="ref-authors">Murray MJ et al.</div>
+        <div class="ref-title-text">Treatment and outcomes of UK and German patients with relapsed intracranial germ cell tumors<span class="ref-badge yellow">Série rétrospective</span></div>
+        <div class="ref-journal">Int J Cancer 2017;141(3):621–635</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1002/ijc.30755" target="_blank">10.1002/ijc.30755</a></div>
+        <div class="ref-note">Germinome : 10/11 en RC durable après re-irradiation · NGGCT : RT seule insuffisante</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num">2</span>
+      <div class="ref-body">
+        <div class="ref-authors">Re-irradiation GCT pinéaux — SRS (case report)</div>
+        <div class="ref-title-text">Re-irradiation of Recurrent Pineal Germ Cell Tumors with Radiosurgery: Report of Two Cases and Review of Literature<span class="ref-badge red">Case report</span></div>
+        <div class="ref-journal">PMC · NCBI</div>
+        <div class="ref-doi"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4882159/" target="_blank">PMC4882159</a></div>
+        <div class="ref-note">SRS/SBRT pour rechute GCT pinel — faisabilité documentée, données limitées</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PANEL — ALGO ═══════════════ -->
+<div id="panel-algo" class="panel">
+<div class="container">
+  <button class="back-btn" onclick="back()">← Retour</button>
+  <div class="panel-header">
+    <h2>Algorithme décisionnel — Récidive NGGCT SNC</h2>
+    <p>Séquence pas-à-pas pour la prise en charge d'une rechute de NGGCT sécrétant du SNC en contexte pédiatrique. RCP nationale obligatoire à chaque étape décisionnelle.</p>
+  </div>
+
+  <div class="slabel">Séquence décisionnelle</div>
+  <table class="algo-table">
+    <thead>
+      <tr><th style="width:60px">Étape</th><th>Action</th><th>Branches</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="step-num">01</span></td>
+        <td>
+          <div class="step-action">Suspicion de rechute — Bilan urgent</div>
+          <div class="step-detail">IRM cérébrale + médullaire avec Gado · Marqueurs sériques AFP + βHCG + LDH (48h) · LCR si possible (PL) · Comparaison imagerie de référence fin traitement initial</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">→ Étape 02</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">02</span></td>
+        <td>
+          <div class="step-action">Caractérisation de la rechute</div>
+          <div class="step-detail">Locale / combinée / à distance / marqueur-only · Délai depuis fin traitement initial · Histologie initiale complète ? Biopsie si discordance marqueurs/imagerie</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">→ Étape 03</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">03</span></td>
+        <td>
+          <div class="step-action">RCP RENOCLIP-LOC / SFCE — Discussion avant tout traitement</div>
+          <div class="step-detail">Présenter : imagerie complète · marqueurs · traitement initial · histologie · état général (Lansky/Karnofsky) · délai de rechute</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">→ Étape 04</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">04</span></td>
+        <td>
+          <div class="step-action">Re-induction — GemPOx × 2 cycles</div>
+          <div class="step-detail">Paclitaxel 170 mg/m² + Gemcitabine 800 mg/m² + Oxaliplatine 100 mg/m² — J1 — cycle 14j · G-CSF · Surveillance hépatique · Planifier mobilisation CSH dès J5–J8 du 2e cycle</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">→ Évaluation Étape 05</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">05</span></td>
+        <td>
+          <div class="step-action">Évaluation post-induction (après 2 cycles)</div>
+          <div class="step-detail">IRM complète + marqueurs AFP / βHCG · Critères réponse : RC = normalisation marqueurs + disparition imagerie · RP = baisse ≥ 90 % marqueurs + réduction ≥ 30 % imagerie</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">RC/RP → Étape 06</span><br>
+          <span class="step-branch branch-bad">Progression → Étape 08</span><br>
+          <span class="step-branch branch-esc">RP insuffisante → Étape 07</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">06</span></td>
+        <td>
+          <div class="step-action">GemPOx × 2 cycles supplémentaires + mobilisation CSH</div>
+          <div class="step-detail">Total 4 cycles maximum · Mobilisation CD34+ après dernier cycle (G-CSF) · Collecte ≥ 2×10⁶/kg CD34 · Vérification fonction organique avant conditionnement</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">→ Étape 09 (HDC)</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">07</span></td>
+        <td>
+          <div class="step-action">Chimiothérapie de 3e ligne ou essai clinique</div>
+          <div class="step-detail">ICE ou TIP selon traitement initial · Inclure dans NCT05650749 (GPC2-CAR T) si disponible · Re-évaluer éligibilité HDC si RC obtenue</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go2">RC → Étape 09</span><br>
+          <span class="step-branch branch-bad">Échec → Étape 08</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">08</span></td>
+        <td>
+          <div class="step-action">Rechute réfractaire — Soins de support / Essai clinique</div>
+          <div class="step-detail">Discussion palliative pédiatrique si ECOG &gt; 2 · Essais CAR-T / immunothérapie · Soins de confort et qualité de vie</div>
+        </td>
+        <td>
+          <span class="step-branch branch-bad">Pronostic sévère</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">09</span></td>
+        <td>
+          <div class="step-action">HDC + Autogreffe (TEC ou CarbTE)</div>
+          <div class="step-detail">Thiotepa 300 mg/m²/j × 3 + Étoposide 500 mg/m²/j × 3 + Carboplatine · Conditionnement J-5 à J-3 · Autogreffe J0 · G-CSF J+1 jusqu'à engraftment</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">→ Étape 10</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="step-num">10</span></td>
+        <td>
+          <div class="step-action">Évaluation post-autogreffe + décision RT</div>
+          <div class="step-detail">IRM + marqueurs à J60–J90 · Résidu &gt; 1 cm : discuter chirurgie (tératome différencié ?) ou SRS · RT adjuvante : décision en RCP selon traitement initial et volume résiduel</div>
+        </td>
+        <td>
+          <span class="step-branch branch-go">RC → Surveillance</span><br>
+          <span class="step-branch branch-esc">Résidu → RT/SRS discutée</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slabel">Signal clinique — Points critiques</div>
+  <div class="signal-box">
+    Trois règles à retenir : <span class="signal-hl">(1) Ne jamais commencer un traitement de rattrapage sans RCP nationale</span> — les séries montrent que la qualité du rattrapage conditionne directement le pronostic. <span class="signal-hl2">(2) La RC avant autogreffe est non négociable</span> — les patients greffés sans RC ont une survie &lt; 20 % à 5 ans, ce qui remet en question l'indication de l'autogreffe elle-même dans ce contexte. <span class="signal-hl3">(3) Une deuxième rechute après autogreffe</span> est quasi-systématiquement fatale avec les traitements conventionnels — l'inclusion dans un essai clinique (CAR-T, immunothérapie) est la seule option raisonnée.
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PANEL — ESSAIS ═══════════════ -->
+<div id="panel-essais" class="panel">
+<div class="container">
+  <button class="back-btn" onclick="back()">← Retour</button>
+  <div class="panel-header">
+    <h2>Essais cliniques</h2>
+    <p>Essais pertinents pour la récidive des NGGCT SNC pédiatriques — 2024–2025. Pas d'essai de phase III ouvert spécifiquement pour la récidive NGGCT SNC à ce jour.</p>
+  </div>
+
+  <div class="slabel">Essais actifs ou récemment complétés</div>
+  <div class="trials-grid">
+    <div class="trial-card completed">
+      <div class="tc-nct"><a href="https://clinicaltrials.gov/study/NCT01270724" target="_blank">NCT01270724</a></div>
+      <div class="tc-title">GemPOx → HDC+AuHPCR pour NGGCT SNC rechutés (NEXT / CNS-GCT-4)</div>
+      <div class="tc-status comp">TERMINÉ — résultats publiés 2024</div>
+      <div class="tc-tags">
+        <span class="th-ct">GemPOx</span>
+        <span class="th-ct">HDC</span>
+        <span class="th-ct">SCT</span>
+      </div>
+      <div class="tc-context">Phase II · Nationwide Children's Hospital · n=9 · 7/9 répondeurs GemPOx · 4/9 vivants sans maladie à 44 mois · <strong>Référence prospective de re-induction</strong></div>
+    </div>
+    <div class="trial-card recruiting">
+      <div class="tc-nct"><a href="https://clinicaltrials.gov/study/NCT05650749" target="_blank">NCT05650749</a></div>
+      <div class="tc-title">GPC2 CAR-T Cells pour tumeurs SNC rechutées/réfractaires</div>
+      <div class="tc-status rec">EN RECRUTEMENT</div>
+      <div class="tc-tags">
+        <span class="th-im">CAR-T</span>
+        <span class="th-im">Immunothérapie</span>
+      </div>
+      <div class="tc-context">Phase I · Inclut NGGCT réfractaires après ≥ 2 lignes · Cible GPC2 (Glypican-2) · Option pour les rechutes réfractaires au GemPOx</div>
+    </div>
+    <div class="trial-card active-nr">
+      <div class="tc-nct"><a href="https://clinicaltrials.gov/study/NCT04684368" target="_blank">NCT04684368</a></div>
+      <div class="tc-title">COG ACNS2021 — NGGCT SNC (1ère ligne)</div>
+      <div class="tc-status anr">ACTIF · Non recrutement</div>
+      <div class="tc-tags">
+        <span class="th-ct">Chémo</span>
+        <span class="th-rt">RT</span>
+        <span class="th-ct">WVSCI</span>
+      </div>
+      <div class="tc-context">Contexte 1ère ligne — CarboE / IE × 6 + WVSCI · Pertinent : données de rechute à venir · Remplace ACNS1123 (fermé précocement — 12% échecs spinaux avec WVRT seule)</div>
+    </div>
+    <div class="trial-card active-nr">
+      <div class="tc-nct">SIOP CNS GCT II</div>
+      <div class="tc-title">Protocole européen SIOP CNS GCT II / ESCP 2021</div>
+      <div class="tc-status anr">ACTIF · Référence européenne</div>
+      <div class="tc-tags">
+        <span class="th-ct">PEI</span>
+        <span class="th-rt">CSI</span>
+        <span class="th-ct">HDC</span>
+      </div>
+      <div class="tc-context">Préliminaires : 3y EFS ~70% M0 · HD-PEI + SCT pour AFP&gt;1000 ou âge&lt;6 ans · Données de rechute en cours d'analyse · Référence pour protocole européen 1ère ligne</div>
+    </div>
+  </div>
+
+  <div class="slabel">Absence de standard — Niveau de preuve global récidive</div>
+  <div class="signal-box">
+    <span class="signal-hl4">Il n'existe pas d'essai randomisé pour la récidive des NGGCT SNC.</span> L'ensemble de la littérature repose sur des <span class="signal-hl3">séries rétrospectives (n=25–101)</span> et un seul essai de phase II (CNS-GCT-4, n=9). Le consensus EANO/SNO/Euracan 2022 (Frappaz et al.) reconnaît explicitement que les <span class="signal-hl">régimes HDC thiotepa-based sont recommandés</span> sur la base de séries rétrospectives et du principe de chimiosensibilité documentée, sans grade de recommandation élevé. Cette situation justifie d'autant plus l'<span class="signal-hl2">orientation systématique vers les centres experts et les essais cliniques disponibles</span> — notamment NCT05650749 pour les cas réfractaires.
+  </div>
+
+  <div class="slabel">Références</div>
+  <div class="refs-list">
+    <div class="ref-item">
+      <span class="ref-num"><span class="ref-recur">🔁</span>1</span>
+      <div class="ref-body">
+        <div class="ref-authors">Frappaz D, Dhall G, Murray MJ et al. (EANO, SNO, Euracan)</div>
+        <div class="ref-title-text">Consensus review on the current management of intracranial GCTs in adolescents and young adults<span class="ref-badge green">Guideline / Consensus</span></div>
+        <div class="ref-journal">Neuro-Oncology 2022;24(4):516–527</div>
+        <div class="ref-doi"><a href="https://doi.org/10.1093/neuonc/noab252" target="_blank">10.1093/neuonc/noab252</a></div>
+        <div class="ref-note">🔁 Consensus le plus récent — section récidive pp. 522–523 · Frappaz D = contact IHOPe/CLB Lyon</div>
+      </div>
+    </div>
+    <div class="ref-item">
+      <span class="ref-num">2</span>
+      <div class="ref-body">
+        <div class="ref-authors">Faure Conter C, Calaminus G, Nicholson J et al.</div>
+        <div class="ref-title-text">CNS germ cell tumor, an archetypal AYA tumor and a model for pediatric and neuro-oncology collaboration — EURACAN domain 10<span class="ref-badge green">Review</span></div>
+        <div class="ref-journal">Front Oncol 2022;12:971697</div>
+        <div class="ref-doi"><a href="https://doi.org/10.3389/fonc.2022.971697" target="_blank">10.3389/fonc.2022.971697</a></div>
+        <div class="ref-note">Revue EURACAN — contexte AYA / pédiatrique · Collaboration européenne ERN PaedCan</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ REFS LANDING ═══════════════════════════════════ -->
+<div id="refs-landing" style="max-width:960px; margin:0 auto; padding:0 20px 80px;">
+<div class="slabel" style="margin-top:0;">Références — Vue d'ensemble</div>
+<div class="refs-list">
+  <div class="ref-item">
+    <span class="ref-num"><span class="ref-recur">🔁</span>1</span>
+    <div class="ref-body">
+      <div class="ref-authors">Murray MJ, Bailey S, Heinemann K et al.</div>
+      <div class="ref-title-text">Treatment and outcomes of UK and German patients with relapsed intracranial germ cell tumors following uniform first-line therapy<span class="ref-badge yellow">Série rétrospective</span></div>
+      <div class="ref-journal">Int J Cancer 2017;141(3):621–635</div>
+      <div class="ref-doi"><a href="https://doi.org/10.1002/ijc.30755" target="_blank">10.1002/ijc.30755</a></div>
+      <div class="ref-note">🔁 n=44 rechutes · NGGCT 5y EFS 56%, OS 60% · Référence fondatrice récidive</div>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-num"><span class="ref-recur">🔁</span>2</span>
+    <div class="ref-body">
+      <div class="ref-authors">Callec L, Rech F, Chastagner P et al.</div>
+      <div class="ref-title-text">Relapsing intracranial germ cell tumours warrant retreatment<span class="ref-badge yellow">Série rétrospective</span></div>
+      <div class="ref-journal">Eur J Cancer 2020;136:186–194</div>
+      <div class="ref-doi"><a href="https://doi.org/10.1016/j.ejca.2020.05.024" target="_blank">10.1016/j.ejca.2020.05.024</a></div>
+      <div class="ref-note">🔁 n=44 rechutes · HDC+SCT absolument nécessaire à visée curative NGGCT</div>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-num"><span class="ref-recur">🔁</span>3</span>
+    <div class="ref-body">
+      <div class="ref-authors">Frappaz D, Dhall G, Murray MJ et al.</div>
+      <div class="ref-title-text">EANO, SNO and Euracan consensus review — intracranial GCTs adolescents and young adults<span class="ref-badge green">Guideline</span></div>
+      <div class="ref-journal">Neuro-Oncology 2022;24(4):516–527</div>
+      <div class="ref-doi"><a href="https://doi.org/10.1093/neuonc/noab252" target="_blank">10.1093/neuonc/noab252</a></div>
+      <div class="ref-note">🔁 Consensus de référence 2022 · HDC thiotepa-based recommandé · Frappaz D = IHOPe Lyon</div>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-num">4</span>
+    <div class="ref-body">
+      <div class="ref-authors">Abu-Arja MH, Osorio DS, Lassaletta A et al.</div>
+      <div class="ref-title-text">Prognostic factors for patients with relapsed CNS NGGCT<span class="ref-badge yellow">Méta-analyse</span></div>
+      <div class="ref-journal">Pediatr Blood Cancer 2022;69(1):e29365</div>
+      <div class="ref-doi"><a href="https://doi.org/10.1002/pbc.29365" target="_blank">10.1002/pbc.29365</a></div>
+      <div class="ref-note">9 études, n=101 · Seule méta-analyse FP récidive · RC pré-greffe = facteur discriminant principal</div>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-num">5</span>
+    <div class="ref-body">
+      <div class="ref-authors">Finlay JL et al. (NEXT/CNS-GCT-4)</div>
+      <div class="ref-title-text">Final report phase II: GemPOx followed by marrow-ablative chemotherapy for recurrent intracranial GCTs<span class="ref-badge green">Phase II</span></div>
+      <div class="ref-journal">Neuro-Oncology Practice 2024</div>
+      <div class="ref-doi"><a href="https://doi.org/10.1093/nop/npad067" target="_blank">10.1093/nop/npad067</a></div>
+      <div class="ref-note">n=9 · 78% répondeurs · Référence prospective GemPOx · NCT01270724</div>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-num"><span class="ref-recur">&#x1F501;</span>6</span>
+    <div class="ref-body">
+      <div class="ref-authors">Calaminus G, Frappaz D, Kortmann RD et al.</div>
+      <div class="ref-title-text">Outcome of patients with intracranial non-germinomatous germ cell tumors &mdash; lessons from SIOP-CNS-GCT-96<span class="ref-badge yellow">S&eacute;rie prospective</span></div>
+      <div class="ref-journal">Neuro-Oncology 2017;19(12):1661&ndash;1672</div>
+      <div class="ref-doi"><a href="https://doi.org/10.1093/neuonc/nox122" target="_blank">10.1093/neuonc/nox122</a></div>
+      <div class="ref-note">&#x1F501; n=116 &middot; 23% rechute &middot; AFP&gt;1000 = FP d&eacute;favorable &middot; Patterns rechute d&eacute;crits</div>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-num">7</span>
+    <div class="ref-body">
+      <div class="ref-authors">Perez-Somarriba M et al. / Ortiz et al.</div>
+      <div class="ref-title-text">GemPOx in relapsed/refractory intracranial NGGCT + VOD p&eacute;diatrique (2025)<span class="ref-badge red">Donn&eacute;es de cas</span></div>
+      <div class="ref-journal">PBC 2020;67(2):e28089 &middot; PBC 2025 (Ortiz)</div>
+      <div class="ref-doi"><a href="https://doi.org/10.1002/pbc.28089" target="_blank">10.1002/pbc.28089</a> &middot; <a href="https://doi.org/10.1002/pbc.31945" target="_blank">10.1002/pbc.31945</a></div>
+      <div class="ref-note">&#9888; VOD/SOS sous GemPOx rapport&eacute;e (Ortiz 2025) &mdash; surveillance h&eacute;patique renforc&eacute;e</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// ======= NAVIGATION =======
+var navStack = [];
+
+function show(id) {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('refs-landing').style.display = 'none';
+  document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+  var el = document.getElementById('panel-' + id);
+  if (el) el.classList.add('active');
+  navStack.push(id);
+  window.scrollTo(0, 0);
+}
+
+function back() {
+  navStack.pop();
+  if (navStack.length === 0) {
+    document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('landing').style.display = '';
+    document.getElementById('refs-landing').style.display = '';
+    window.scrollTo(0, 0);
+  } else {
+    show(navStack[navStack.length - 1]);
+  }
+}
+
+// ======= THEME =======
+var THEME_KEY = 'theme-nggct-relapse-revue';
+
+function applyTheme(mode) {
+  var btn = document.getElementById('btn-theme');
+  if (mode === 'light') {
+    document.body.classList.add('light');
+    if (btn) { btn.textContent = '☀'; btn.title = 'Passer en mode sombre'; }
+    try { localStorage.setItem(THEME_KEY, 'light'); } catch(e) {}
+  } else {
+    document.body.classList.remove('light');
+    if (btn) { btn.textContent = '◑'; btn.title = 'Passer en mode clair'; }
+    try { localStorage.setItem(THEME_KEY, 'dark'); } catch(e) {}
+  }
+}
+
+function toggleTheme() {
+  applyTheme(document.body.classList.contains('light') ? 'dark' : 'light');
+}
+
+function initTheme() {
+  try {
+    if (localStorage.getItem(THEME_KEY) === 'light') applyTheme('light');
+  } catch(e) {}
+}
+
+initTheme();
+</script>
+</body>
+</html>

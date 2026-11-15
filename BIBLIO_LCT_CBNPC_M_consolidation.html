@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Bibliographie — RT de consolidation dans le CBNPC métastatique</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+  /* ── THÈME ── */
+  :root {
+    --bg:        #faf8f4;
+    --surface:   #ffffff;
+    --surface2:  #f2efea;
+    --border:    #e2ddd6;
+    --text:      #1a1714;
+    --muted:     #6b6560;
+    --accent:    #2c5f8a;
+    --accent-lt: #e8f0f7;
+    --ok:        #2c6e4a;
+    --ok-lt:     #e8f4ee;
+    --warn:      #8a2c2c;
+    --warn-lt:   #f7e8e8;
+    --amber:     #7a5c1e;
+    --amber-lt:  #fdf3e0;
+    --purple:    #6b3fa0;
+    --purple-lt: #f0ebf9;
+    --rule:      1px solid var(--border);
+  }
+
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── BASE ── */
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    padding: 0 0 80px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--text);
+    color: #faf8f4;
+    padding: 32px 48px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  header .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    opacity: .55;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.25;
+    max-width: 760px;
+  }
+  header .meta-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  header .meta-item {
+    font-size: 12px;
+    opacity: .7;
+  }
+  header .meta-item strong { opacity: 1; font-weight: 500; }
+
+  /* ── PICO BAND ── */
+  .pico-band {
+    background: var(--accent);
+    color: #fff;
+    padding: 18px 48px;
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .pico-item { font-size: 12.5px; line-height: 1.55; min-width: 140px; }
+  .pico-item .letter {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .65;
+    display: block;
+  }
+  .pico-item .val { font-weight: 400; opacity: .95; }
+
+  /* ── CONTEXTE BAND ── */
+  .ctx-band {
+    background: var(--surface2);
+    border-bottom: var(--rule);
+    padding: 12px 48px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .ctx-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 4px;
+  }
+  .ctx-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .ctx-tag.sync  { background: var(--accent-lt); color: var(--accent); border-color: #b8cfe0; }
+  .ctx-tag.meta  { background: var(--ok-lt);     color: var(--ok);     border-color: #b8dcc8; }
+  .ctx-tag.prog  { background: var(--amber-lt);  color: var(--amber);  border-color: #ddd0ae; }
+  .ctx-tag.bio   { background: var(--purple-lt); color: var(--purple); border-color: #c8b8e0; }
+
+  /* ── LAYOUT ── */
+  .wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  section { margin-top: 40px; }
+
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── VERDICT ── */
+  .verdict-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 640px) { .verdict-grid { grid-template-columns: 1fr; } }
+
+  .verdict-card {
+    border-radius: 6px;
+    padding: 16px 18px;
+    border-left: 3px solid;
+  }
+  .verdict-card.positive { background: var(--ok-lt);     border-color: var(--ok); }
+  .verdict-card.negative { background: var(--warn-lt);   border-color: var(--warn); }
+  .verdict-card.neutral  { background: var(--amber-lt);  border-color: var(--amber); }
+  .verdict-card.pending  { background: var(--purple-lt); border-color: var(--purple); }
+
+  .verdict-card .vc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .positive .vc-label { color: var(--ok); }
+  .negative .vc-label { color: var(--warn); }
+  .neutral  .vc-label { color: var(--amber); }
+  .pending  .vc-label { color: var(--purple); }
+
+  .verdict-card p { font-size: 13px; line-height: 1.55; }
+  .verdict-card .trial { font-weight: 600; }
+
+  /* ── MESSAGE BOX ── */
+  .message-box {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-top: 14px;
+  }
+  .message-box .mb-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-bottom: 6px;
+  }
+  .message-box p { font-size: 14px; line-height: 1.6; }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; border-radius: 6px; border: var(--rule); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  thead tr { background: var(--surface2); }
+  thead th {
+    text-align: left;
+    padding: 9px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    border-bottom: var(--rule);
+  }
+  tbody tr { border-bottom: var(--rule); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f8f6f2; }
+  td { padding: 9px 12px; vertical-align: top; line-height: 1.5; }
+  td small { font-size: 11px; color: var(--muted); }
+  td .trial-name { font-weight: 600; color: var(--accent); }
+  td .nctn { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+  td a { color: var(--accent); text-decoration: none; }
+  td a:hover { text-decoration: underline; }
+  td strong { font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .06em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .badge-ok      { background: var(--ok-lt);    color: var(--ok);     border: 1px solid #b8dcc8; }
+  .badge-warn    { background: var(--warn-lt);   color: var(--warn);   border: 1px solid #dbb8b8; }
+  .badge-amber   { background: var(--amber-lt);  color: var(--amber);  border: 1px solid #ddd0ae; }
+  .badge-neutral { background: #f0eee9;          color: var(--muted);  border: 1px solid var(--border); }
+  .badge-purple  { background: var(--purple-lt); color: var(--purple); border: 1px solid #c8b8e0; }
+
+  /* ── RT CARDS ── */
+  .rt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .rt-card {
+    background: var(--surface);
+    border: var(--rule);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .rt-card .rc-site {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+  .rt-card .rc-dose {
+    font-size: 18px;
+    font-family: 'DM Serif Display', serif;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .rt-card .rc-bed {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .rt-card .rc-note { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+
+  /* ── WARN / ALERT BOXES ── */
+  .warn-box {
+    background: var(--warn-lt);
+    border: 1px solid #dbb8b8;
+    border-left: 3px solid var(--warn);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-top: 14px;
+    color: var(--warn);
+  }
+  .warn-box strong { font-weight: 600; }
+
+  .amber-box {
+    background: var(--amber-lt);
+    border: 1px solid #ddd0ae;
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-top: 14px;
+    color: var(--amber);
+  }
+  .amber-box strong { font-weight: 600; }
+
+  .info-box {
+    background: var(--accent-lt);
+    border: 1px solid #b8cfe0;
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-top: 14px;
+    color: var(--accent);
+  }
+  .info-box strong { font-weight: 600; }
+
+  /* ── NIVEAU DE PREUVE GRID ── */
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .ev-card {
+    background: var(--surface);
+    border: var(--rule);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .ev-card .ev-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .ev-card.standard { border-left: 3px solid var(--warn); }
+  .ev-card.standard .ev-label { color: var(--warn); }
+  .ev-card.option   { border-left: 3px solid var(--amber); }
+  .ev-card.option   .ev-label { color: var(--amber); }
+  .ev-card.exp      { border-left: 3px solid var(--purple); }
+  .ev-card.exp      .ev-label { color: var(--purple); }
+  .ev-card.phase3   { border-left: 3px solid var(--ok); }
+  .ev-card.phase3   .ev-label { color: var(--ok); }
+  .ev-card p { font-size: 12.5px; line-height: 1.5; }
+  .ev-card .ev-context { font-size: 11px; color: var(--muted); margin-top: 5px; font-style: italic; }
+
+  /* ── SOUS-GROUPES ── */
+  .subgroup-list { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+  .sg-item {
+    background: var(--surface);
+    border: var(--rule);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+  }
+  .sg-item .sg-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .sg-item .sg-pop  { font-weight: 600; color: var(--accent); margin-bottom: 2px; }
+  .sg-item .sg-note { font-size: 12px; color: var(--muted); }
+
+  /* ── ESSAIS EN COURS ── */
+  .ongoing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .ongoing-card {
+    background: var(--surface);
+    border: var(--rule);
+    border-radius: 6px;
+    padding: 13px 15px;
+  }
+  .ongoing-card .oc-nct {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+  }
+  .ongoing-card .oc-name { font-weight: 600; font-size: 13.5px; margin: 3px 0; }
+  .ongoing-card .oc-detail { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+  .ongoing-card .oc-crit { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 5px; }
+
+  /* ── LACUNES ── */
+  .gap-list { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+  .gap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: var(--rule);
+  }
+  .gap-item:last-child { border-bottom: none; }
+  .gap-item .gi-mark {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-weight: 600;
+  }
+
+  /* ── LECTURES RECOMMANDÉES ── */
+  .reading-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .reading-item {
+    background: var(--surface);
+    border: var(--rule);
+    border-radius: 6px;
+    padding: 13px 16px;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  .reading-item .ri-icon { font-size: 16px; line-height: 1.6; }
+  .reading-item .ri-ref  { font-weight: 600; font-size: 13px; color: var(--accent); }
+  .reading-item .ri-why  { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .reading-item.priority { border-left: 3px solid var(--accent); background: var(--accent-lt); }
+
+  /* ── RÉFÉRENCES ── */
+  .refs-list { display: flex; flex-direction: column; gap: 7px; margin-top: 14px; }
+  .ref-item {
+    font-size: 12.5px;
+    padding: 8px 12px;
+    background: var(--surface);
+    border: var(--rule);
+    border-radius: 4px;
+    line-height: 1.55;
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+  .ref-item .rn { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+  .ref-item a { color: var(--accent); text-decoration: none; }
+  .ref-item a:hover { text-decoration: underline; }
+
+  /* ── DONNÉES NON RANDO ── */
+  .nrct-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .nrct-card {
+    background: var(--surface);
+    border: var(--rule);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .nrct-card .nc-ref { font-weight: 600; font-size: 13px; color: var(--accent); margin-bottom: 4px; }
+  .nrct-card .nc-type { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .nrct-card .nc-res  { font-size: 12.5px; margin-bottom: 4px; }
+  .nrct-card .nc-bias { font-size: 11.5px; color: var(--amber); font-style: italic; }
+
+  /* ── HYPOTHÈSES ── */
+  .hypothesis-list { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+  .hyp-item {
+    background: var(--surface);
+    border: var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 60px;
+    border-top: var(--rule);
+    padding: 16px 48px;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    header, .pico-band, .ctx-band, footer { padding-left: 20px; padding-right: 20px; }
+    .wrapper { padding: 0 16px; }
+    .verdict-grid, .evidence-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    header, .pico-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .message-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ HEADER ════════════════════════ -->
+<header>
+  <span class="label">Recherche bibliographique clinique — Usage personnel · Institut Léon Bérard</span>
+  <h1>Radiothérapie de consolidation locale dans le CBNPC métastatique</h1>
+  <div class="meta-row">
+    <span class="meta-item"><strong>Date :</strong> 18/03/2026</span>
+    <span class="meta-item"><strong>Thème :</strong> LCT (SBRT/SABR) — Oligométastase synchrone · Métachrone · Oligoprogression</span>
+    <span class="meta-item"><strong>Statut :</strong> ✔ Complété</span>
+    <span class="meta-item"><strong>Template :</strong> v1.1</span>
+  </div>
+</header>
+
+<!-- ═══════════════════════ PICO BAND ════════════════════════ -->
+<div class="pico-band">
+  <div class="pico-item">
+    <span class="letter">P — Population</span>
+    <span class="val">CBNPC stade IV oligométastatique (≤5 sites)<br>synchrone · métachrone · oligoprogressif<br>Tous biomarqueurs (WT, EGFR muté, ALK+)</span>
+  </div>
+  <div class="pico-item">
+    <span class="letter">I — Intervention</span>
+    <span class="val">RT de consolidation locale (LCT)<br>SBRT/SABR ou hypofractionnée<br>± chirurgie sur tous sites actifs</span>
+  </div>
+  <div class="pico-item">
+    <span class="letter">C — Comparateur</span>
+    <span class="val">Traitement systémique seul<br>(maintenance ICI / TKI / chimio)</span>
+  </div>
+  <div class="pico-item">
+    <span class="letter">O — Outcomes</span>
+    <span class="val">SSP (principal) · SG · Contrôle local<br>Schémas RT par site · Toxicité</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ CONTEXTE TAGS ════════════════════════ -->
+<div class="ctx-band">
+  <span class="ctx-label">Contextes couverts :</span>
+  <span class="ctx-tag sync">Synchrone d'emblée</span>
+  <span class="ctx-tag meta">Métachrone (récidive limitée)</span>
+  <span class="ctx-tag prog">Oligoprogression sous systémique</span>
+  <span class="ctx-tag bio">EGFR muté (SINDAS)</span>
+  <span class="ctx-tag bio">WT sous ICI (NRG-LU002)</span>
+</div>
+
+<!-- ═══════════════════════ WRAPPER ═══════════════════════════ -->
+<div class="wrapper">
+
+  <!-- ═══ SYNTHÈSE CLINIQUE ═══ -->
+  <section>
+    <div class="section-title">Synthèse clinique — Verdicts par contexte</div>
+    <div class="verdict-grid">
+      <div class="verdict-card positive">
+        <div class="vc-label">EGFR muté — Synchrone + TKI 1G</div>
+        <p><span class="trial">SINDAS (phase III).</span> Premier essai de phase III positif en LCT synchrone.
+        SSP : <strong>20,2 vs 12,5 m</strong> (p&lt;0,001). SG : <strong>25,5 vs 17,4 m</strong> (p&lt;0,001).
+        Schéma RT simple (25–40 Gy/5 fx) bien toléré. Niveau de preuve 1 — mais TKI 1G uniquement.</p>
+      </div>
+      <div class="verdict-card negative">
+        <div class="vc-label">WT sous ICI — Consolidation post-réponse</div>
+        <p><span class="trial">NRG-LU002 (phase II/III, N=215, 90 % ICI).</span> Signal négatif le plus solide.
+        SSP HR 0,93 (p=0,664) — aucun bénéfice LCT consolidative sous ICI.
+        Toxicité pulmonaire grade ≥3 : 10 % vs 1 %. Résultats détaillés non encore publiés.</p>
+      </div>
+      <div class="verdict-card positive">
+        <div class="vc-label">Oligoprogression sous ICI — CBNPC</div>
+        <p><span class="trial">CURB (phase II, Lancet 2024, MSKCC).</span> SSP : <strong>10,0 vs 2,2 m</strong> (p=0,004) — bénéfice ×4,5 sur SSP.
+        SBRT ciblant les sites progressifs uniquement. Signal fort mais monocentrique ;
+        SG non mature ; cancer du sein : négatif.</p>
+      </div>
+      <div class="verdict-card neutral">
+        <div class="vc-label">Synchrone pré-ICI (contexte historique)</div>
+        <p><span class="trial">Gomez 2019 (MDACC, N=49)</span> et <span class="trial">Iyengar 2018 (N=29)</span>.
+        SSP ×3 dans les deux essais. Bénéfice SG chez Gomez (41,2 vs 17,0 m).
+        Niveau de preuve 2 — ère pré-ICI, arrêts précoces, effectifs faibles.</p>
+      </div>
+      <div class="verdict-card positive">
+        <div class="vc-label">Toutes histologies — Primitif contrôlé</div>
+        <p><span class="trial">SABR-COMET (phase II, N=99).</span> SG à 8 ans : 21,3 % sans récidive à 5 ans.
+        Histologie-agnostique (18/99 CBNPC). Signal durable mais α=0,20,
+        3 décès liés à la SBRT.</p>
+      </div>
+      <div class="verdict-card pending">
+        <div class="vc-label">EGFR muté — Osimertinib (TKI 3G)</div>
+        <p><span class="trial">NORTHSTAR (en cours).</span> La transposabilité de SINDAS (TKI 1G) à l'osimertinib n'est pas établie.
+        Données de survie attendues. Question clinique ouverte en 2026.</p>
+      </div>
+    </div>
+    <div class="message-box">
+      <div class="mb-label">Message à retenir pour la pratique — 2026</div>
+      <p>La LCT n'est <strong>pas un standard</strong> dans le CBNPC métastatique sous ICI en 2026 (NRG-LU002 négatif). Son indication reste à individualiser selon le contexte oncogénique (EGFR muté : SINDAS positif), la qualité de réponse à la systémique (répondeurs > stabilisateurs) et le site de progression (oligoprogression : CURB positif). Le timing, la sélection des patients et la toxicité pulmonaire sous ICI sont des facteurs critiques non encore résolus.</p>
+    </div>
+  </section>
+
+  <!-- ═══ TABLEAU ESSAIS RCT ═══ -->
+  <section>
+    <div class="section-title">Essais randomisés — Tableau de synthèse (ordre chronologique)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Essai</th>
+            <th>N</th>
+            <th>Phase</th>
+            <th>Contexte</th>
+            <th>Systémique</th>
+            <th>Cibles RT</th>
+            <th>Résultat SSP</th>
+            <th>Résultat SG</th>
+            <th>RT publiée ?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="trial-name">Iyengar 2018</span><br>
+              <span class="nctn"><a href="https://clinicaltrials.gov/study/NCT02045446" target="_blank">NCT02045446</a></span>
+            </td>
+            <td>29</td>
+            <td><span class="badge badge-neutral">Phase II</span></td>
+            <td>Synchrone, ≤6 sites</td>
+            <td>Chimio maintenance</td>
+            <td>Tous sites y.c. primitif + ganglions</td>
+            <td><strong>9,7 vs 3,5 m</strong><br><small>p=0,01</small></td>
+            <td>NA</td>
+            <td><span class="badge badge-ok">✓ Publié</span><br><small>SAbR 1–5 fx</small></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="trial-name">Gomez 2019</span><br>
+              <span class="nctn" style="color:#aaa">NCT01725165</span>
+            </td>
+            <td>49</td>
+            <td><span class="badge badge-neutral">Phase II</span></td>
+            <td>Synchrone, ≤3M</td>
+            <td>Chimio ± TKI (pas ICI)</td>
+            <td>Tous sites actifs y.c. primitif</td>
+            <td><strong>14,2 vs 4,4 m</strong><br><small>p&lt;0,001</small></td>
+            <td><strong>41,2 vs 17,0 m</strong><br><small>p=0,017</small></td>
+            <td><span class="badge badge-amber">⚠ Partiel</span><br><small>Non standardisé</small></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="trial-name">SABR-COMET</span><br>
+              <span class="nctn"><a href="https://clinicaltrials.gov/study/NCT01446744" target="_blank">NCT01446744</a></span>
+            </td>
+            <td>99</td>
+            <td><span class="badge badge-neutral">Phase II</span></td>
+            <td>Toutes hist., ≤5M, primitif contrôlé</td>
+            <td>Soins standard</td>
+            <td>Toutes métastases (primitif NON irradié)</td>
+            <td>NR</td>
+            <td>SG : <strong>41 vs 28 m</strong><br><small>α=0,20 ; 8 ans publiés</small></td>
+            <td><span class="badge badge-ok">✓ Publié</span><br><small>SBRT ablative doses variables</small></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="trial-name">SINDAS</span><br>
+              <span class="nctn"><a href="https://clinicaltrials.gov/study/NCT02893332" target="_blank">NCT02893332</a></span>
+            </td>
+            <td>133</td>
+            <td><span class="badge badge-ok">Phase III</span></td>
+            <td>EGFR muté, synchrone ≤5M</td>
+            <td>TKI 1G (géfitinib, erlotinib)</td>
+            <td>Primitif + ganglions régionaux + toutes M</td>
+            <td><strong>20,2 vs 12,5 m</strong><br><small>p&lt;0,001</small></td>
+            <td><strong>25,5 vs 17,4 m</strong><br><small>p&lt;0,001</small></td>
+            <td><span class="badge badge-ok">✓ JNCI 2023</span><br><small>25–40 Gy / 5 fx</small></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="trial-name">NRG-LU002</span><br>
+              <span class="nctn"><a href="https://clinicaltrials.gov/study/NCT03137771" target="_blank">NCT03137771</a></span>
+            </td>
+            <td>215</td>
+            <td><span class="badge badge-amber">Phase II/III</span></td>
+            <td>≤3M extracrâniennes, stable après 4c.</td>
+            <td>ICI 90 % (chimio-ICI ou ICI seul)</td>
+            <td>Sites résiduels après 1L (y.c. primitif)</td>
+            <td>HR 0,93 — <strong style="color:var(--warn)">négatif</strong><br><small>p=0,664</small></td>
+            <td>HR 1,05 — <strong style="color:var(--warn)">négatif</strong><br><small>p=0,821</small></td>
+            <td><span class="badge badge-warn">⚠ Abstract ASCO 2024</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="trial-name">CURB</span><br>
+              <span class="nctn"><a href="https://clinicaltrials.gov/study/NCT03808662" target="_blank">NCT03808662</a></span>
+            </td>
+            <td>106</td>
+            <td><span class="badge badge-neutral">Phase II</span></td>
+            <td>Oligoprogression CBNPC ou sein, ≤5 sites</td>
+            <td>ICI 77–82 % (CBNPC)</td>
+            <td>Sites oligoprogressifs uniquement</td>
+            <td>CBNPC : <strong>10,0 vs 2,2 m</strong><br><small>p=0,004</small></td>
+            <td>Non mature</td>
+            <td><span class="badge badge-ok">✓ Lancet 2024</span><br><small>9–10 Gy × 3–5 fx</small></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn-box">
+      ⚠️ <strong>NRG-LU002 :</strong> publication complète attendue — les données dosimétriques RT et les analyses en sous-groupes (RP vs MS, site irradié) ne sont pas encore disponibles. L'abstract ASCO 2024 ne rapporte que les résultats principaux.
+    </div>
+  </section>
+
+  <!-- ═══ DONNÉES NON RANDOMISÉES ═══ -->
+  <section>
+    <div class="section-title">Données non randomisées pertinentes</div>
+    <div class="nrct-grid">
+      <div class="nrct-card">
+        <div class="nc-type">Phase II monogroupe</div>
+        <div class="nc-ref">Keane et al. — IJROBP 2025</div>
+        <div class="nc-res">N=27. CBNPC oncogène-dépendant (EGFR++), TKI en cours.
+        SBRT primitif seul (92,6 % des cas). Durée de réponse à 12 m réduite vs contrôles historiques.</div>
+        <div class="nc-bias">⚠ Arrêt précoce, recrutement lent, monocentrique.</div>
+      </div>
+      <div class="nrct-card">
+        <div class="nc-type">Rétrospective bicentrique</div>
+        <div class="nc-ref">Su et al. — Sci Reports 2025</div>
+        <div class="nc-res">N=127. CBNPC WT, oligo-résiduelle ≤5 lésions après ICI.
+        SBRT/chirurgie/ablation. SSP : <strong>14,0 vs 7,0 m</strong> (HR 0,17) ; SG : <strong>27,3 vs 15,8 m</strong>.</div>
+        <div class="nc-bias">⚠ Sélection forte, rétrospectif, doses non uniformes.</div>
+      </div>
+      <div class="nrct-card">
+        <div class="nc-type">Phase II randomisée</div>
+        <div class="nc-ref">Sohaib et al. — Oncol Clin Pract 2026</div>
+        <div class="nc-res">N=75. CBNPC stade IV tous stades, réponse/stabilisation après 1L.
+        RT primitif 45 Gy/15 fx seul. SSP améliorée (données préliminaires).</div>
+        <div class="nc-bias">⚠ Peu d'ICI, primitif seul irradié, données préliminaires.</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <strong>OligoCare (EORTC-ESTRO, Radiother Oncol 2024) :</strong> données en vie réelle — BED₁₀ médian 85,3 Gy pour NSCLC oligométastatique. Dose et fractionnement variant selon le site et l'histologie.
+    </div>
+  </section>
+
+  <!-- ═══ SCHÉMAS RT ═══ -->
+  <section>
+    <div class="section-title">Schémas RT — Référentiels par site (NRG-BR001 · ASTRO/ESTRO CPG 2023)</div>
+    <div class="rt-grid">
+      <div class="rt-card">
+        <div class="rc-site">Poumon périphérique</div>
+        <div class="rc-dose">54 Gy / 3 fx</div>
+        <div class="rc-bed">BED₁₀ : 151 Gy</div>
+        <div class="rc-note">Standard SBRT ablative de référence (ESTRO-ASTRO 2023). Alternatif : 48 Gy/4 fx (BED₁₀ 106 Gy).</div>
+      </div>
+      <div class="rt-card">
+        <div class="rc-site">Poumon central / hilaire</div>
+        <div class="rc-dose">50 Gy / 5 fx</div>
+        <div class="rc-bed">BED₁₀ : 100 Gy</div>
+        <div class="rc-note">⚠️ Éviter 3 fx en central (toxicité bronchique). Contraintes OAR (bronches, œsophage) limitantes.</div>
+      </div>
+      <div class="rt-card">
+        <div class="rc-site">Médiastin / ganglions</div>
+        <div class="rc-dose">45–50 Gy / 5 fx</div>
+        <div class="rc-bed">BED₁₀ : 85–100 Gy</div>
+        <div class="rc-note">Contraintes OAR strictes (moelle, cœur, œsophage). Nécessite dosimétrie experte.</div>
+      </div>
+      <div class="rt-card">
+        <div class="rc-site">Primitif pulmonaire (LCT)</div>
+        <div class="rc-dose">45–55 Gy / 15–22 fx</div>
+        <div class="rc-bed">BED₁₀ : 58–97 Gy</div>
+        <div class="rc-note">Hypofract. préféré si tumeur volumineuse ou centrale. SBRT si techniquement faisable et tumeur &lt;5 cm.</div>
+      </div>
+      <div class="rt-card">
+        <div class="rc-site">Primitif EGFR muté (SINDAS)</div>
+        <div class="rc-dose">25–40 Gy / 5 fx</div>
+        <div class="rc-bed">BED₁₀ : 37–60 Gy</div>
+        <div class="rc-note">Schéma modeste, bien toléré. Ajusté à taille et localisation. Inclut primitif + ganglions régionaux.</div>
+      </div>
+      <div class="rt-card">
+        <div class="rc-site">Métastases osseuses</div>
+        <div class="rc-dose">24–27 Gy / 3 fx</div>
+        <div class="rc-bed">BED₁₀ : 43–51 Gy</div>
+        <div class="rc-note">BED₁₀ &lt;100 Gy habituel — contrainte moelle spinale limitante (D1cc &lt;10 Gy/fx).</div>
+      </div>
+      <div class="rt-card">
+        <div class="rc-site">Foie</div>
+        <div class="rc-dose">45–54 Gy / 3 fx</div>
+        <div class="rc-bed">BED₁₀ : 120–151 Gy</div>
+        <div class="rc-note">Dépend du volume de foie sain (&gt;700 cc en dehors du PTV). Reprise respiratoire recommandée.</div>
+      </div>
+      <div class="rt-card">
+        <div class="rc-site">Sites oligoprogressifs (CURB)</div>
+        <div class="rc-dose">27–30 Gy / 3 fx<br>ou 45–50 Gy / 5 fx</div>
+        <div class="rc-bed">BED₁₀ : 37–60 Gy</div>
+        <div class="rc-note">53 % : 9–10 Gy×3 ; 18 % : 10 Gy×5. Dose déterminée par le radio-oncologue selon volume/localisation.</div>
+      </div>
+    </div>
+    <div class="warn-box" style="color: var(--amber); background: var(--amber-lt); border-color: var(--amber); border-left-color: var(--amber);">
+      ⚠️ <strong>RT thoracique × ICI — Toxicité majorée :</strong> pneumopathie grade ≥3 dans NRG-LU002 : <strong>10 % (bras LCT) vs 1 % (bras contrôle)</strong>. Vigilance accrue lors de l'association SBRT thoracique + checkpoint inhibiteur, en particulier pour les lésions hilaires/médiastinales.
+    </div>
+  </section>
+
+  <!-- ═══ HYPOTHÈSES DISCORDANCES ═══ -->
+  <section>
+    <div class="section-title">Hypothèses explicatives — Discordances Gomez/SABR-COMET (+) vs NRG-LU002 (−)</div>
+    <div class="hypothesis-list">
+      <div class="hyp-item">🔬 <strong>ICI contrôle mieux la maladie microsystémique</strong> → marge de bénéfice marginal réduite pour la LCT consolidative dans la population globale traitée par ICI.</div>
+      <div class="hyp-item">📊 <strong>57,8 % de maladie stable dans NRG-LU002</strong> (pas de RP) → population peu répondeuse, moins susceptible de bénéficier de la LCT. Signal possible chez les répondeurs partiels non analysé en sous-groupe.</div>
+      <div class="hyp-item">⏱️ <strong>Timing potentiellement sous-optimal</strong> : 4 cycles d'ICI insuffisants pour atteindre la réponse maximale (médiane réponse : ~109 jours). La LCT intervient peut-être trop tôt.</div>
+      <div class="hyp-item">🫁 <strong>Toxicité pulmonaire ICI + RT thoracique</strong> → pneumopathie grade ≥3 : 10 % vs 1 % — peut annuler les bénéfices oncologiques de la LCT dans les localisations thoraciques.</div>
+      <div class="hyp-item">🧬 <strong>SINDAS positif car population biologiquement sélectionnée</strong> (EGFR muté + TKI 1G) — extrapolation très limitée à l'ère ICI/osimertinib et au CBNPC WT.</div>
+    </div>
+  </section>
+
+  <!-- ═══ NIVEAU DE PREUVE ═══ -->
+  <section>
+    <div class="section-title">Niveau de preuve global — Implications pratiques 2026</div>
+    <div class="evidence-grid">
+      <div class="ev-card standard">
+        <div class="ev-label">❌ Pas standard</div>
+        <p>CBNPC WT sous ICI, consolidation post-réponse</p>
+        <div class="ev-context">NRG-LU002 négatif (phase II/III, N=215, 90 % ICI)</div>
+      </div>
+      <div class="ev-card phase3">
+        <div class="ev-label">✓ Niveau 1 (phase III)</div>
+        <p>EGFR muté synchrone + TKI 1G : LCT upfront recommandable</p>
+        <div class="ev-context">SINDAS — JNCI 2023 — mais TKI 1G uniquement</div>
+      </div>
+      <div class="ev-card option">
+        <div class="ev-label">Option raisonnable (phase II)</div>
+        <p>Oligométastase synchrone pré-ICI avec RP à la systémique</p>
+        <div class="ev-context">Gomez 2019 · Iyengar 2018 — contexte historique</div>
+      </div>
+      <div class="ev-card exp">
+        <div class="ev-label">Expérimental (phase II)</div>
+        <p>Oligoprogression sous ICI ≤5 sites — CBNPC sans driver</p>
+        <div class="ev-context">CURB positif (Lancet 2024) — confirmation phase III nécessaire</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOUS-GROUPES BÉNÉFICIAIRES ═══ -->
+  <section>
+    <div class="section-title">Sous-groupes bénéficiaires potentiels</div>
+    <div class="subgroup-list">
+      <div class="sg-item">
+        <span class="sg-icon">🟢</span>
+        <div>
+          <div class="sg-pop">CBNPC EGFR muté + TKI 1G — Oligométastase synchrone</div>
+          <div class="sg-note">SINDAS (phase III) : SSP et SG améliorés. Mais TKI 1G (géfitinib/erlotinib) uniquement — 73 % métastases osseuses. Applicabilité à l'osimertinib non établie (NORTHSTAR en cours).</div>
+        </div>
+      </div>
+      <div class="sg-item">
+        <span class="sg-icon">🟡</span>
+        <div>
+          <div class="sg-pop">Oligoprogression sous ICI ≤5 sites — CBNPC sans driver</div>
+          <div class="sg-note">CURB (phase II) : SSP ×4,5. Signal fort mais monocentrique (MSKCC). SG non mature. Cancer du sein : négatif — histologie-spécificité à confirmer.</div>
+        </div>
+      </div>
+      <div class="sg-item">
+        <span class="sg-icon">🟡</span>
+        <div>
+          <div class="sg-pop">Oligométastase synchrone avec réponse partielle à la systémique</div>
+          <div class="sg-note">Signal de NRG-LU002 (sous-groupe non analysé formellement) : les répondeurs partiels sont probablement plus susceptibles de bénéficier de la LCT que les maladies stables. Attendre la publication complète.</div>
+        </div>
+      </div>
+      <div class="sg-item">
+        <span class="sg-icon">🔵</span>
+        <div>
+          <div class="sg-pop">Maladie oligo-résiduelle sous ICI + ctDNA négatif post-ICI</div>
+          <div class="sg-note">Signal exploratoire prometteur dans CURB (ctDNA) et données rétrospectives (Su et al.). Biomarqueur non validé en pratique courante.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LACUNES ═══ -->
+  <section>
+    <div class="section-title">Lacunes identifiées — Questions ouvertes 2026</div>
+    <div class="gap-list">
+      <div class="gap-item">
+        <span class="gi-mark">☑</span>
+        <span>Absence d'essai de phase III positif dans la population CBNPC WT sous ICI (NRG-LU002 négatif — publication complète attendue)</span>
+      </div>
+      <div class="gap-item">
+        <span class="gi-mark">☑</span>
+        <span>Données dosimétriques NRG-LU002 non publiées (abstract ASCO 2024 seulement) — schémas RT et protocole de ciblage inconnus</span>
+      </div>
+      <div class="gap-item">
+        <span class="gi-mark">☑</span>
+        <span>Hétérogénéité majeure entre essais : ère pré-ICI vs post-ICI, populations sélectionnées vs tous-comers, LCT upfront vs consolidation post-réponse vs oligoprogression</span>
+      </div>
+      <div class="gap-item">
+        <span class="gi-mark">☑</span>
+        <span>Absence de biomarqueur prédictif validé (ctDNA prometteur dans CURB mais exploratoire — non implémentable en routine)</span>
+      </div>
+      <div class="gap-item">
+        <span class="gi-mark">☑</span>
+        <span>Applicabilité de SINDAS à l'osimertinib non établie (TKI 1G uniquement — NORTHSTAR en cours)</span>
+      </div>
+      <div class="gap-item">
+        <span class="gi-mark">☑</span>
+        <span>Rôle de la LCT à l'oligoprogression vs consolidation post-réponse : deux questions distinctes, encore largement ouvertes</span>
+      </div>
+      <div class="gap-item">
+        <span class="gi-mark">☑</span>
+        <span>Toxicité pulmonaire ICI + SBRT thoracique : mécanismes, facteurs prédictifs et stratégies de mitigation non documentés</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ESSAIS EN COURS ═══ -->
+  <section>
+    <div class="section-title">Essais en cours à surveiller</div>
+    <div class="ongoing-grid">
+      <div class="ongoing-card">
+        <div class="oc-nct"><a href="https://clinicaltrials.gov/study/NCT02417662" target="_blank">NCT02417662</a></div>
+        <div class="oc-name">SARON</div>
+        <div class="oc-detail">Phase III (RU) · Randomisé<br>Chimio + SBRT, synchrone ≤5M<br>Résultats attendus ~2025–2026</div>
+        <div class="oc-crit">Critère principal : SG</div>
+      </div>
+      <div class="ongoing-card">
+        <div class="oc-nct"><a href="https://clinicaltrials.gov/study/NCT01446744" target="_blank">NCT01446744</a></div>
+        <div class="oc-name">SABR-COMET-3</div>
+        <div class="oc-detail">Phase III · Randomisé<br>1–3 métastases (primitif inclus)<br>En cours — suivi long terme</div>
+        <div class="oc-crit">Critère principal : SG</div>
+      </div>
+      <div class="ongoing-card">
+        <div class="oc-nct"><a href="https://clinicaltrials.gov/study/NCT03827577" target="_blank">NCT03827577</a></div>
+        <div class="oc-name">OMEGA</div>
+        <div class="oc-detail">Phase II/III · Randomisé<br>Stratifié par addiction oncogénique<br>(EGFR / ALK / PDL1)</div>
+        <div class="oc-crit">Critère principal : SSP</div>
+      </div>
+      <div class="ongoing-card">
+        <div class="oc-nct"><a href="https://clinicaltrials.gov/study/NCT03410043" target="_blank">NCT03410043</a></div>
+        <div class="oc-name">NORTHSTAR</div>
+        <div class="oc-detail">Phase II · Randomisé<br>EGFR muté + <strong>osimertinib</strong> ± LCT<br>Données de survie attendues</div>
+        <div class="oc-crit">Critère principal : SSP</div>
+      </div>
+    </div>
+    <div class="info-box" style="margin-top: 14px;">
+      <strong>Note SARON :</strong> seul essai de phase III en cours dans le CBNPC synchrone avec ICI en contexte européen. Les résultats (attendus 2025–2026) sont déterminants pour établir le standard post-NRG-LU002.
+    </div>
+  </section>
+
+  <!-- ═══ LECTURES RECOMMANDÉES ═══ -->
+  <section>
+    <div class="section-title">Lectures recommandées — Priorités 2026</div>
+    <div class="reading-list">
+      <div class="reading-item priority">
+        <span class="ri-icon">📖</span>
+        <div>
+          <div class="ri-ref">Iyengar P et al. NRG-LU002 — JCO 2024;42(16 suppl):8506 <span style="color:var(--warn); font-size:11px">[abstract — publication complète attendue]</span></div>
+          <div class="ri-why">Signal négatif le plus solide et le plus représentatif de la pratique actuelle (90 % ICI, N=215). Publication complète à surveiller activement — les données dosimétriques RT, les sous-groupes (RP vs MS) et les analyses de toxicité y seront déterminants.</div>
+        </div>
+      </div>
+      <div class="reading-item priority">
+        <span class="ri-icon">📖</span>
+        <div>
+          <div class="ri-ref">Wang XS et al. SINDAS — JNCI 2023;115(6):742–8</div>
+          <div class="ri-why">Premier essai de phase III positif en LCT synchrone. Schéma RT simple (25–40 Gy/5 fx) intégralement rapporté. Lire en entier, y compris le tableau des sites irradiés et les analyses de sous-groupes.</div>
+        </div>
+      </div>
+      <div class="reading-item priority">
+        <span class="ri-icon">📖</span>
+        <div>
+          <div class="ri-ref">Tsai CJ et al. CURB — Lancet 2024;403(10422):171–82</div>
+          <div class="ri-why">Premier essai randomisé positif spécifiquement dans l'oligoprogression. Données ctDNA exploratoires très prometteuses pour la sélection des patients. Analyse CBNPC vs sein séparée à examiner.</div>
+        </div>
+      </div>
+      <div class="reading-item">
+        <span class="ri-icon">📖</span>
+        <div>
+          <div class="ri-ref">ASTRO/ESTRO Clinical Practice Guideline — Treatment of oligometastatic NSCLC. Pract Radiat Oncol 2023</div>
+          <div class="ri-why">Seul document de consensus multidisciplinaire avec recommandations de dose/technique SBRT par site anatomique. Définitions OMD, séquençage LCT/systémique. Avant NRG-LU002 final.</div>
+        </div>
+      </div>
+      <div class="reading-item">
+        <span class="ri-icon">📖</span>
+        <div>
+          <div class="ri-ref">Hasan et al. — Crit Rev Oncol Hematol 2025</div>
+          <div class="ri-why">Méta-analyse la plus récente (données jusqu'à fin 2024). Intégration ICI et ctDNA comme biomarqueurs. Confirme le bénéfice LCT chez sujets sélectionnés post-systémique, nuancé par NRG-LU002.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PÉRIMÈTRE / EXCLUSIONS ═══ -->
+  <section>
+    <div class="section-title">Périmètre — Exclusions justifiées</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Essai / donnée</th>
+            <th>Raison d'exclusion</th>
+            <th>Apport indirect</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="trial-name">NRG-LU005</span></td>
+            <td>CBPC stade limité — pas CBNPC, pas métastatique</td>
+            <td>Timing ICI concurrent à chimioRT</td>
+          </tr>
+          <tr>
+            <td><span class="trial-name">PEMBRO-RT / MDACC abscopal</span></td>
+            <td>RT abscopale — objectif immuno-modulateur, pas LCT de tous les sites</td>
+            <td>Données dose/fraction utiles</td>
+          </tr>
+          <tr>
+            <td><span class="trial-name">PACIFIC / PACIFIC-2</span></td>
+            <td>CBNPC stade III localement avancé — timing ICI séquentiel après RT curative</td>
+            <td>Non applicable</td>
+          </tr>
+          <tr>
+            <td><span class="trial-name">RT palliative (20 Gy/5 fx, 8 Gy/1 fx)</span></td>
+            <td>Intention palliative, non consolidative</td>
+            <td>Non applicable</td>
+          </tr>
+          <tr>
+            <td><span class="trial-name">SABR-COMET (sous-groupe CBNPC)</span></td>
+            <td>Histologie-agnostique (18/99 CBNPC) — primitif contrôlé requis et NON irradié</td>
+            <td>Données survie à 5 et 8 ans valides</td>
+          </tr>
+          <tr>
+            <td><span class="trial-name">NRG-BR002 (sein oligométastatique)</span></td>
+            <td>Cancer du sein — négatif, renforce histologie-spécificité</td>
+            <td>Signal négatif : sein ≠ CBNPC</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ RÉFÉRENCES ═══ -->
+  <section>
+    <div class="section-title">Références clés (Vancouver)</div>
+    <div class="refs-list">
+      <div class="ref-item">
+        <span class="rn">[1]</span>
+        <span>Gomez DR, Tang C, Zhang J, et al. Local consolidative therapy vs. maintenance therapy or observation for patients with oligometastatic non-small-cell lung cancer: long-term results. <em>J Clin Oncol</em>. 2019;37(18):1558–65. <a href="https://doi.org/10.1200/JCO.19.00201" target="_blank">doi:10.1200/JCO.19.00201</a></span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[2]</span>
+        <span>Iyengar P, Wardak Z, Gerber DE, et al. Consolidative radiotherapy for limited metastatic non-small-cell lung cancer: a phase 2 randomized clinical trial. <em>JAMA Oncol</em>. 2018;4(1):e173501. <a href="https://doi.org/10.1001/jamaoncol.2017.3501" target="_blank">doi:10.1001/jamaoncol.2017.3501</a></span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[3]</span>
+        <span>Palma DA, Olson R, Harrow S, et al. Stereotactic ablative radiotherapy for the comprehensive treatment of oligometastatic cancers: long-term results of the SABR-COMET phase II randomized trial. <em>J Clin Oncol</em>. 2020;38(25):2830–8. <a href="https://doi.org/10.1200/JCO.20.00818" target="_blank">doi:10.1200/JCO.20.00818</a></span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[4]</span>
+        <span>Wang XS, Bai YF, Verma V, et al. Randomized trial of first-line tyrosine kinase inhibitor with or without radiotherapy for synchronous oligometastatic EGFR-mutated non-small cell lung cancer. <em>J Natl Cancer Inst</em>. 2023;115(6):742–8. <a href="https://doi.org/10.1093/jnci/djad015" target="_blank">doi:10.1093/jnci/djad015</a></span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[5]</span>
+        <span>Iyengar P, Hu C, Gomez DR, et al. NRG-LU002: randomized phase II/III trial of maintenance systemic therapy versus local consolidative therapy plus maintenance systemic therapy for limited metastatic NSCLC. <em>J Clin Oncol</em>. 2024;42(16 suppl):8506. <a href="https://doi.org/10.1200/JCO.2024.42.16_suppl.8506" target="_blank">doi:10.1200/JCO.2024.42.16_suppl.8506</a> <span style="color:var(--warn); font-size:11px">[abstract]</span></span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[6]</span>
+        <span>Tsai CJ, Yang JT, Shaverdian N, et al. Standard-of-care systemic therapy with or without stereotactic body radiotherapy in patients with oligoprogressive breast cancer or non-small-cell lung cancer (CURB). <em>Lancet</em>. 2024;403(10422):171–82. <a href="https://doi.org/10.1016/S0140-6736(23)02116-3" target="_blank">doi:10.1016/S0140-6736(23)02116-3</a></span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[7]</span>
+        <span>Treatment of oligometastatic non-small cell lung cancer: an ASTRO/ESTRO clinical practice guideline. <em>Pract Radiat Oncol</em>. 2023. <a href="https://doi.org/10.1016/j.prro.2023.04.004" target="_blank">doi:10.1016/j.prro.2023.04.004</a></span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[8]</span>
+        <span>Hasan S, et al. Local consolidative therapy in NSCLC: a systematic review integrating immunotherapy and ctDNA biomarker data. <em>Crit Rev Oncol Hematol</em>. 2025.</span>
+      </div>
+      <div class="ref-item">
+        <span class="rn">[9]</span>
+        <span>OligoCare consortium (EORTC-ESTRO). Real-world dosimetric patterns in oligometastatic NSCLC: median BED₁₀ 85.3 Gy. <em>Radiother Oncol</em>. 2024.</span>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <span>RT de consolidation — CBNPC métastatique — Session 18/03/2026 · Bibliographie complète tous contextes</span>
+  <span>Template v1.1 — Usage personnel — Ronan T. · ILB Lyon</span>
+</footer>
+
+</body>
+</html>

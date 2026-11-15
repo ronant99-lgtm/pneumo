@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RT adaptative – CBNPC curatif</title>
+<style>
+:root{--ink:#1d2430;--muted:#5b6575;--line:#d9dee6;--bg:#fff;--soft:#f4f6f9;--accent:#1f4e79;
+--rct:#1b7a3d;--pro:#b26b00;--retro:#8a8f98;--tech:#5a4fa0;}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.6rem;margin:0 0 4px;color:var(--accent)}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.92rem}
+nav{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin-bottom:24px;font-size:.9rem}
+nav a{color:var(--accent);text-decoration:none;margin-right:14px;white-space:nowrap;line-height:1.9}
+h2{font-size:1.2rem;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:4px;margin:34px 0 12px}
+h3{font-size:1.02rem;margin:20px 0 8px}
+.key{background:#eef4fa;border-left:4px solid var(--accent);padding:10px 16px;border-radius:4px}
+.key li{margin:4px 0}
+.warn{background:#fff6e8;border-left:4px solid var(--pro);padding:8px 14px;border-radius:4px;margin:12px 0;font-size:.93rem}
+table{width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:.86rem}
+th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+th{background:var(--soft)}
+.tbl{overflow-x:auto}
+.b{display:inline-block;font-size:.72rem;font-weight:600;color:#fff;border-radius:3px;padding:1px 6px;white-space:nowrap}
+.rct{background:var(--rct)}.pro{background:var(--pro)}.retro{background:var(--retro)}.tech{background:var(--tech)}
+.legend{font-size:.8rem;color:var(--muted);margin:4px 0 0}
+.refs{font-size:.82rem}
+.refs li{margin:3px 0}
+a{color:var(--accent)}
+footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+@media print{
+ nav{display:none}
+ body{font-size:10.5pt}
+ .wrap{max-width:none;padding:0}
+ h2{page-break-after:avoid}
+ table,.key,.warn{page-break-inside:avoid}
+ a{color:inherit;text-decoration:none}
+ .b{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Radiothérapie adaptative des CBNPC à visée curative</h1>
+<p class="sub">Place actuelle et évolutions — revue de littérature · Recherche PubMed (champ titre, 2013–oct. 2026) + ClinicalTrials.gov · 29/10/2026</p>
+
+<nav>
+<a href="#synthese">Synthèse</a>
+<a href="#typo">Typologie</a>
+<a href="#sbrt">SBRT précoce</a>
+<a href="#la">Stade III – anatomique</a>
+<a href="#bio">Stade III – biologique (TEP)</a>
+<a href="#evol">Évolutions</a>
+<a href="#essais">Essais en cours</a>
+<a href="#limites">Lacunes</a>
+<a href="#refs">Références</a>
+</nav>
+
+<h2 id="synthese">Synthèse</h2>
+<div class="key"><ul>
+<li><b>Aucun essai randomisé ne démontre à ce jour un bénéfice clinique (contrôle local, survie, toxicité) de la RT adaptative <i>anatomique</i></b> dans le CBNPC. Le niveau de preuve repose sur des gains dosimétriques et des séries prospectives/rétrospectives monocentriques.</li>
+<li><b>SBRT des tumeurs ultracentrales</b> : c'est l'indication où le rationnel est le plus solide. Le contexte est la mortalité de HILUS. La SMART (MR-linac) donne des séries avec un contrôle local à 2 ans d'environ 87–93 % et peu de toxicité de grade ≥ 4. Mais il s'agit de petites séries, et l'essai de phase I MAGELLAN n'est pas publié. Une alternative non adaptative avec PRV et gestion respiratoire avancée paraît sûre, au prix d'une couverture PTV inférieure.</li>
+<li><b>Stade III, adaptation anatomique</b> : environ 11–13 % des patients nécessitent une replanification sur CBCT quotidien. Sans adaptation, environ 16 % auraient une couverture CTV insuffisante. L'adaptation en ligne CBCT (Ethos) est faisable en moins de 30 min, avec des gains de couverture et des épargnes OAR modestes (environ 1,3–1,8 Gy en dose moyenne cœur/œsophage/poumon).</li>
+<li><b>Stade III, adaptation biologique (escalade sur TEP per-traitement)</b> :
+ <ul>
+ <li>NRG-RTOG 1106 est <b>négatif</b> sur le FFLP.</li>
+ <li>RTEP7-IFCT-1402 (non comparatif) montre un signal de contrôle local sans surcroît de toxicité.</li>
+ <li>PET-Boost montre une toxicité létale inacceptable (18 % de grades 5), avec une composante œsophagienne majeure.</li>
+ </ul>
+ L'escalade guidée par TEP reste du domaine de la recherche ; un phase III est réclamé par les auteurs de RTEP7.</li>
+<li><b>Évolutions</b> : auto-contourage par IA (y compris des modèles « foundation »), CT synthétique, monitoring de dose quotidien sur CBCT et accumulation de dose, CBCT de haute qualité (HyperSight), IRM quantitative sur MR-linac. Ces outils réduisent le coût humain de l'adaptation, qui en est la principale barrière.</li>
+</ul></div>
+
+<h2 id="typo">Typologie de l'adaptation</h2>
+<div class="tbl"><table>
+<tr><th>Modalité</th><th>Déclencheur / fréquence</th><th>Plateformes</th><th>Situation clinique principale</th></tr>
+<tr><td><b>Offline anatomique</b></td><td>Changement détecté sur CBCT (protocole « feu tricolore »), CT de contrôle mi-traitement</td><td>Linac standard + TPS</td><td>Stade III (fonte tumorale, levée d'atélectasie, décalage tumeur/ganglions)</td></tr>
+<tr><td><b>Online CBCT</b></td><td>Quotidienne ou « à la demande » (hebdomadaire)</td><td>Ethos (± HyperSight)</td><td>Stade III fractionné classique ; SBRT</td></tr>
+<tr><td><b>Online IRM (SMART)</b></td><td>Quotidienne + gating ciné-IRM</td><td>MRIdian 0,35 T, Unity 1,5 T</td><td>SBRT centrale/ultracentrale ; stade III (faisabilité)</td></tr>
+<tr><td><b>Biologique / réponse</b></td><td>TEP-FDG per-traitement (≈ 24–45 Gy)</td><td>Toute plateforme</td><td>Escalade de dose stade III</td></tr>
+</table></div>
+
+<h2 id="sbrt">SBRT des stades précoces : tumeurs centrales et ultracentrales</h2>
+<p>Pour les tumeurs périphériques, la SBRT conventionnelle (ITV/4D, IGRT) donne déjà un contrôle local excellent. L'adaptation n'y a pas de rationnel démontré en dehors de situations particulières, par exemple la SBRT en séance unique « direct-to-unit » sur Ethos (cas isolé).</p>
+<p>L'intérêt se concentre sur les tumeurs <b>ultracentrales</b>. Dans HILUS, 8 × 7 Gy délivrés à moins de 1 cm de l'arbre bronchique proximal (PBT) ont entraîné 15 % de décès liés au traitement (rappel du protocole MAGELLAN).</p>
+
+<div class="tbl"><table>
+<tr><th>Étude</th><th>Type</th><th>Population</th><th>Schéma</th><th>Résultats clés</th></tr>
+<tr><td>Regnery 2023, <i>Lung Cancer</i></td><td><span class="b pro">Prospectif (registre)</span></td><td>36 pts / 40 tumeurs (16 ULT), MRIdian</td><td>SMART</td><td>Progression locale à 2 ans : 7 % (ULT) vs 0 % ; toxicité G≥2 : 56 % (ULT) vs 5 % ; 2 hémorragies bronchiques de grade ≥ 3 (dont 1 sous anti-VEGF), haut grade estimé à 19 % ; aucun décès lié au traitement</td></tr>
+<tr><td>Sandoval 2023, <i>JTO CRR</i></td><td><span class="b retro">Rétrospectif</span></td><td>47 pts centraux, dont 26 UC groupe A ; 53 % métastatiques</td><td>MRgSBRT/MRgHRT, BED<sub>10</sub> médiane 105 Gy ; 16 pts adaptés quotidiennement</td><td>Contrôle local à 1 an : 87 % ; 2 G3 (4,3 %), 0 G4–5</td></tr>
+<tr><td>Bryant 2024, <i>Commun Med</i></td><td><span class="b retro">Rétrospectif</span></td><td>14 ULT (HILUS A 86 %)</td><td>SMART + accumulation de dose</td><td>D<sub>max</sub> PBT −5,7 Gy et couverture GTV +7,3 % vs plan non adapté ; contrôle local à 2 ans : 92,9 % ; 0 G≥3</td></tr>
+<tr><td>Regnery 2024, <i>CTRO</i> (données MAGELLAN)</td><td><span class="b tech">Dosimétrique</span></td><td>19 ULT (10 × 5–5,5 Gy)</td><td>SMART vs SBRT VMAT non adaptative simulée</td><td>Sans adaptation, surdosage du PBT chez 60 % des patients. Un PRV de 2 mm en DIBH prévient le surdosage mais réduit la couverture PTV (89 % vs 96 %, p = 0,014)</td></tr>
+<tr><td>MAGELLAN (NCT04925583)</td><td><span class="b pro">Phase I</span></td><td>ULT ≤ 5 cm, ≤ 38 pts</td><td>10 × 5,5 → 6,5 Gy, TITE-CRM</td><td>DMT non publiée à ce jour</td></tr>
+</table></div>
+<p class="legend"><span class="b rct">Phase II randomisé</span> <span class="b pro">Prospectif / phase I</span> <span class="b retro">Rétrospectif</span> <span class="b tech">Dosimétrique / technique</span></p>
+
+<div class="warn"><b>Lecture critique.</b>
+<ul>
+<li>Les séries mélangent CBNPC primitifs et métastases, avec des définitions d'ultracentralité hétérogènes (chevauchement PTV/PBT, HILUS A/B, RTOG).</li>
+<li>Les effectifs sont faibles et le suivi court (environ 2 ans).</li>
+<li>La toxicité tardive bronchique hémorragique reste présente sous SMART, en particulier avec les anti-VEGF.</li>
+<li>Le travail de Regnery 2024 montre qu'une partie du bénéfice tient au gating et au contrôle du mouvement intra-fraction, et pas uniquement à la replanification.</li>
+</ul></div>
+
+<h2 id="la">Stade III : adaptation anatomique (offline et online)</h2>
+<h3>Fréquence et impact des modifications anatomiques</h3>
+<div class="tbl"><table>
+<tr><th>Étude</th><th>Type</th><th>n</th><th>Constats</th></tr>
+<tr><td>Mushonga 2023, <i>Adv Radiat Oncol</i></td><td><span class="b retro">Rétrospectif</span></td><td>144</td><td>11 % replanifiés (décalage 10, fonte 5, croissance 1). Volume PTV prédictif (OR 2,5). Survie globale et contrôle local identiques chez les replanifiés</td></tr>
+<tr><td>Bjaanæs 2021, <i>phiRO</i></td><td><span class="b pro">Prospectif</span></td><td>66</td><td>12 patients adaptés (2 adaptés deux fois) sur CBCT quotidien + recalcul mi-traitement</td></tr>
+<tr><td>Carlsen 2026, <i>Acta Oncol</i></td><td><span class="b pro">Prospectif</span></td><td>45 (38 avec rCT)</td><td>
+ <ul>
+ <li>Protocole feu tricolore : passage d'un recalage osseux à un recalage tumoral chez 37,8 % des patients, replanification chez 13,3 %.</li>
+ <li>Sans adaptation, 15,8 % auraient eu une couverture CTV insuffisante.</li>
+ <li>Performance du protocole : sensibilité 83 %, spécificité 89 %.</li>
+ <li>Survie globale médiane : 43,5 mois.</li>
+ </ul></td></tr>
+<tr><td>Callens 2026, <i>tipsRO</i></td><td><span class="b pro">Prospectif</span></td><td>22 (604 fractions)</td><td>Monitoring de dose automatisé quotidien sur CBCT. Le code orange du feu tricolore est un proxy partiel de la perte de couverture PTV, mais un proxy <b>non fiable</b> de la dose aux OAR. Les dérives sont surtout inter-individuelles</td></tr>
+</table></div>
+
+<h3>Adaptation en ligne guidée par CBCT ou IRM</h3>
+<div class="tbl"><table>
+<tr><th>Étude</th><th>Type</th><th>Constats</th></tr>
+<tr><td>Li 2024, <i>Pract Radiat Oncol</i> (« Adapt-on-demand »)</td><td><span class="b retro">Rétrospectif</span></td><td>
+ <ul>
+ <li>26 pts : adaptation Ethos hebdomadaire, délivrance quotidienne sur Halcyon ; séance de moins de 30 min dans la majorité des cas.</li>
+ <li>Réduction de l'ITV de 26,6 % en moyenne.</li>
+ <li>V100 % PTV : +6,8 % (+17,2 % si croissance tumorale > 10 %).</li>
+ <li>Contraintes OAR respectées dans 94 % des plans adaptés vs 82 % des plans non adaptés ; dose cœur/œsophage/poumon −1,3 à −1,8 Gy.</li>
+ </ul></td></tr>
+<tr><td>Seller-Oria 2025, <i>phiRO</i> (NKI)</td><td><span class="b tech">Technique</span></td><td>Correction automatique du mouvement différentiel tumeur primitive/ganglions par CT synthétique (vecteur résiduel 5,1 → 0,7 mm). Ouvre la voie à une réduction des marges</td></tr>
+<tr><td>Aymane 2025, <i>Radiat Oncol</i> (Essen)</td><td><span class="b pro">Prospectif (registre)</span></td><td>Ethos HyperSight en inspiration bloquée : robustesse dosimétrique de la paroi bronchique centrale sous adaptation en ligne</td></tr>
+<tr><td>Polce 2026, <i>Front Oncol</i> (Moffitt)</td><td><span class="b tech">Technique</span></td><td>Workflow d'adaptation en ligne CT pour une escalade hypofractionnée avec boost intégré chez les patients non éligibles à la radiochimiothérapie concomitante</td></tr>
+<tr><td>PUMA (NCT05237453)</td><td><span class="b pro">Phase I</span></td><td>MR-linac (MRIdian, Unity), stade IIIA–C, escalade isotoxique jusqu'à 70 Gy, adaptation hebdomadaire. Critère : faisabilité et temps sur table. Actif, non recrutant ; résultats non publiés. PUMA II prévu avec un critère de toxicité G≥3</td></tr>
+</table></div>
+
+<div class="warn"><b>Point clé.</b> Les données de ces séries n'apportent aucun signal de bénéfice en contrôle local ou en survie. Le bénéfice démontré est dosimétrique : préserver la couverture en cas de décalage ou de croissance, et épargner les OAR en cas de fonte. À l'ère PACIFIC, la réduction de dose pulmonaire a une pertinence théorique (pneumopathies sous durvalumab), mais elle n'est pas démontrée cliniquement.</div>
+
+<h2 id="bio">Stade III : adaptation biologique (escalade guidée par TEP-FDG per-traitement)</h2>
+<div class="tbl"><table>
+<tr><th>Essai</th><th>Type</th><th>Design</th><th>Résultat principal</th><th>Toxicité</th></tr>
+<tr><td><b>NRG-RTOG 1106 / ECOG-ACRIN 6697</b> — Kong, <i>JCO</i> 2024</td><td><span class="b rct">Phase II randomisé</span></td><td>127 pts éligibles (1:2). 60 Gy vs boost sur le volume métabolique résiduel à mi-traitement (moyenne 71 Gy/30 fr)</td><td><b>Négatif</b> : FFLP à 2 ans de 59,5 % (standard) vs 54,6 % (adaptatif), p = 0,66. ΔSUV et ΔMTV non associés au FFLP</td><td>Pas de différence de grade 3 ; dose pulmonaire moyenne 17,9 Gy</td></tr>
+<tr><td><b>RTEP7-IFCT-1402</b> — Vera, <i>Lancet Oncol</i> 2024</td><td><span class="b rct">Phase II randomisé non comparatif</span></td><td>158 pts. Boost jusqu'à 74 Gy si fixation résiduelle à 42 Gy (bras A) vs 66 Gy. Chimiothérapie d'induction + concomitante</td><td>Contrôle local à 15 mois : 77,6 % vs 71,2 %. Boost délivré à 48/68 pts du bras A (71 %)</td><td>G3–4 aigus : 29 % vs 45 % ; pas d'excès de toxicité sur les OAR. Les auteurs demandent un phase III</td></tr>
+<tr><td><b>ARTFORCE PET-Boost</b> — Cooke, <i>Radiother Oncol</i> 2023</td><td><span class="b rct">Phase II randomisé</span></td><td>107 pts (tumeur ≥ 4 cm). Escalade isotoxique sur tumeur entière vs sous-volume TEP, 24 fractions</td><td>Absence de rechute locale à 1 an : 97 % vs 91 % (objectif atteint dans les deux bras)</td><td><b>Grade 5 : 19 pts (18 %)</b>. Œsophage G≥3 : 22,4 %, dont 3 fistules fatales ; G≥3 réduit de 35,2 % à 9,4 % après la contrainte œsophage + 5 mm D0,1 % < 70 Gy EQD2 (Cooke 2025)</td></tr>
+<tr><td>FLARE-RT — Gates 2023</td><td><span class="b pro">Phase II</span></td><td>45 pts. 74 Gy si réponse défavorable à 24 Gy</td><td>Une forte baisse du SUV<sub>mean</sub> est associée indépendamment au risque de pneumopathie</td><td>Pneumopathie comparable à 74 Gy et à 60 Gy</td></tr>
+<tr><td>Essai canadien SMAD (NCT02788461)</td><td><span class="b rct">Phase II randomisé</span></td><td>60 Gy vs boost intégré sur sous-volumes FDG jusqu'à 85 Gy</td><td>Actif, non recrutant ; résultats attendus</td><td>—</td></tr>
+</table></div>
+
+<div class="warn"><b>Lecture critique.</b>
+<ul>
+<li>Les deux essais positifs sur le contrôle local (RTEP7, PET-Boost) ne sont pas comparatifs ou n'ont pas de bras standard. Le seul essai comparatif formel (RTOG 1106) est négatif.</li>
+<li>RTEP7 a été conduit avant l'ère du durvalumab et avec une chimiothérapie d'induction. Sa transposabilité au schéma PACIFIC est incertaine.</li>
+<li>Le signal de toxicité de PET-Boost (hypofractionnement en 24 fractions, structures centrales) rappelle RTOG 0617.</li>
+</ul></div>
+
+<h2 id="evol">Évolutions technologiques</h2>
+<ul>
+<li><b>Auto-contourage par IA</b> :
+ <ul>
+ <li>Propagation du GTV sur l'IRM du jour par modèles « foundation » (MedSAM2, nnInteractive) : Dice jusqu'à +15 % vs recalage affine, sans dégradation de la qualité du plan (Dudas 2026).</li>
+ <li>Fine-tuning patient-spécifique des OAR sur MR-linac 0,35 T : meilleure épargne des OAR (53/61 vs 48/61 contraintes respectées) (Xiong 2025).</li>
+ </ul></li>
+<li><b>Monitoring et accumulation de dose</b> : recalcul automatisé quotidien sur CBCT pour décider de l'adaptation sur la dose et non sur l'anatomie seule (Callens 2026).</li>
+<li><b>Imagerie</b> :
+ <ul>
+ <li>4D-CBCT adaptatif rapide : 15 % de la dose d'imagerie et 25 % du temps d'acquisition, qualité équivalente (Sana 2026).</li>
+ <li>CBCT HyperSight avec calcul de dose direct.</li>
+ </ul></li>
+<li><b>IRM quantitative sur MR-linac</b> : diffusion, ventilation/perfusion par ciné-IRM. Revue Moretti 2026 : 19 études d'adaptation en ligne guidée par IRM sur 2020–2025, dont seulement 3 en IRM quantitative ; biomarqueurs non validés.</li>
+<li><b>Imagerie fonctionnelle ventilatoire</b> : la fonte tumorale mi-traitement s'accompagne d'une récupération ventilatoire, ce qui argumente une replanification à composante fonctionnelle (Deng 2026).</li>
+<li><b>Suppression des marges PTV</b> grâce à l'adaptation en ligne : essais randomisés chinois en cours (voir ci-dessous).</li>
+</ul>
+
+<h2 id="essais">Essais en cours pertinents (ClinicalTrials.gov, oct. 2026)</h2>
+<div class="tbl"><table>
+<tr><th>NCT</th><th>Phase</th><th>Population</th><th>Question</th><th>Statut</th></tr>
+<tr><td>NCT06542159</td><td>II rand.</td><td>CBNPC précoce / oligométastases (n = 130)</td><td>SBRT adaptative en ligne sans marge PTV vs SBRT conventionnelle</td><td>Recrute</td></tr>
+<tr><td>NCT06730295</td><td>II</td><td>CBNPC précoce central (n = 52)</td><td>SBRT adaptative en ligne sans marge PTV</td><td>Recrute</td></tr>
+<tr><td>NCT04925583 (MAGELLAN)</td><td>I</td><td>Ultracentrales</td><td>DMT de la SMART</td><td>En cours</td></tr>
+<tr><td>NCT05237453 (PUMA)</td><td>I</td><td>Stade III</td><td>Faisabilité de l'adaptation en ligne sur MR-linac</td><td>Actif, non recrutant</td></tr>
+<tr><td>NCT06545747</td><td>III</td><td>Stade III (n = 490)</td><td>Hypofractionnement split-course adaptatif guidé par IRM DCE + RCT + immunothérapie de consolidation</td><td>Recrute</td></tr>
+<tr><td>NCT07164885 (RAPART)</td><td>II/III</td><td>Stade III (n = 911)</td><td>RT adaptative guidée par la radiosensibilité</td><td>Recrute</td></tr>
+<tr><td>NCT02788461 (SMAD)</td><td>II rand.</td><td>Stade III</td><td>Escalade métabolique adaptative jusqu'à 85 Gy</td><td>Actif, non recrutant</td></tr>
+<tr><td>NCT07132918 (HEARTS)</td><td>II</td><td>Stade III et autres tumeurs thoraciques</td><td>Épargne cardiaque par adaptation en ligne sur MR-linac</td><td>Recrute</td></tr>
+<tr><td>NCT06185062 (PRoART)</td><td>Registre</td><td>Tumeurs pelviennes et thoraciques, Ethos</td><td>Adaptation en ligne vs IGRT : −10 % de toxicité aiguë G≥2</td><td>En cours</td></tr>
+<tr><td>NCT07138755 (ART-LUNG 01)</td><td>II</td><td>Stade III (n = 35)</td><td>Induction sintilimab-chimiothérapie puis RCT adaptative (V20 ≤ 20 %)</td><td>Recrute</td></tr>
+</table></div>
+
+<h2 id="limites">Lacunes et points d'attention</h2>
+<ol>
+<li><b>Pas d'essai randomisé « adaptatif vs non adaptatif »</b> avec un critère clinique, en SBRT comme au stade III. PRoART et HEARTS restent non randomisés.</li>
+<li><b>Hétérogénéité des déclencheurs</b> : anatomique, dosimétrique ou feu tricolore. Aucun seuil consensuel de replanification n'existe, et le feu tricolore est un proxy imparfait de la dose aux OAR.</li>
+<li><b>Confusion entre gating et replanification</b> dans les séries MR-linac : l'effet propre de l'adaptation n'est pas isolé.</li>
+<li><b>Ère de l'immunothérapie</b> : aucune donnée sur l'interaction entre RT adaptative et pneumopathie sous durvalumab. Les essais d'escalade TEP sont antérieurs à PACIFIC.</li>
+<li><b>Coût en ressources</b> (temps sur table, présence médicale, physique) : c'est la barrière principale. L'automatisation par IA la réduit, mais l'impact médico-économique n'est pas évalué.</li>
+</ol>
+
+<h2 id="refs">Références</h2>
+<ol class="refs">
+<li>Regnery S et al. To fly or not to fly: SMART for ultracentral lung tumors. <i>Lung Cancer</i> 2023;179:107175. <a href="https://doi.org/10.1016/j.lungcan.2023.03.011">doi</a></li>
+<li>Regnery S et al. How to protect the proximal bronchial tree during SBRT of ultracentral lung tumors. <i>Clin Transl Radiat Oncol</i> 2024;51:100899. <a href="https://doi.org/10.1016/j.ctro.2024.100899">doi</a></li>
+<li>Regnery S et al. MAGELLAN trial (ARO 2021-3) protocol. <i>Radiat Oncol</i> 2022;17:102. <a href="https://doi.org/10.1186/s13014-022-02070-x">doi</a></li>
+<li>Sandoval ML et al. MR-guided SBRT/HRT for central and ultracentral lung lesions. <i>JTO Clin Res Rep</i> 2023;4:100488. <a href="https://doi.org/10.1016/j.jtocrr.2023.100488">doi</a></li>
+<li>Bryant JM et al. Structure-specific rigid dose accumulation in SMART for ultracentral lung lesions. <i>Commun Med</i> 2024;4:96. <a href="https://doi.org/10.1038/s43856-024-00526-7">doi</a></li>
+<li>Forghani F et al. Direct-to-unit single-visit online adaptive SABR. <i>Radiat Oncol</i> 2025;20:148. <a href="https://doi.org/10.1186/s13014-025-02700-0">doi</a></li>
+<li>Mushonga M et al. Unanticipated radiation replanning for stage III NSCLC. <i>Adv Radiat Oncol</i> 2023;8:101275. <a href="https://doi.org/10.1016/j.adro.2023.101275">doi</a></li>
+<li>Bjaanæs MM et al. Improved adaptive radiotherapy for locally advanced lung cancer. <i>Phys Imaging Radiat Oncol</i> 2021;18:51-54. <a href="https://doi.org/10.1016/j.phro.2021.04.003">doi</a></li>
+<li>Carlsen IH et al. Prospective evaluation and clinical outcomes of ART for LA-NSCLC. <i>Acta Oncol</i> 2026;65:476-484. <a href="https://doi.org/10.2340/1651-226X.2026.45745">doi</a></li>
+<li>Callens D et al. Does the traffic light protocol capture dose deviations? <i>Tech Innov Patient Support Radiat Oncol</i> 2026;39:100427. <a href="https://doi.org/10.1016/j.tipsro.2026.100427">doi</a></li>
+<li>Li R et al. Adapt-on-demand for locally advanced lung cancer. <i>Pract Radiat Oncol</i> 2024;14:e395-e406. <a href="https://doi.org/10.1016/j.prro.2024.02.007">doi</a></li>
+<li>Seller-Oria C et al. Automated target misalignment correction for CBCT-based oART. <i>Phys Imaging Radiat Oncol</i> 2025;36:100885. <a href="https://doi.org/10.1016/j.phro.2025.100885">doi</a></li>
+<li>Aymane K et al. Acuros XB plan robustness during oART for lung cancer. <i>Radiat Oncol</i> 2025;20:75. <a href="https://doi.org/10.1186/s13014-025-02656-1">doi</a></li>
+<li>Polce SA et al. CT-based oART for dose escalation in hypofractionated RT for LA lung cancer. <i>Front Oncol</i> 2026;16:1777077. <a href="https://doi.org/10.3389/fonc.2026.1777077">doi</a></li>
+<li>Regnery S et al. PUMA trial protocol. <i>Radiat Oncol</i> 2023;18:74. <a href="https://doi.org/10.1186/s13014-023-02258-9">doi</a></li>
+<li>Kong FS et al. Primary results of NRG-RTOG1106/ECOG-ACRIN 6697. <i>J Clin Oncol</i> 2024;42:3935-3946. <a href="https://doi.org/10.1200/JCO.24.00022">doi</a></li>
+<li>Vera P et al. RTEP7-IFCT-1402. <i>Lancet Oncol</i> 2024;25:1176-1187. <a href="https://doi.org/10.1016/S1470-2045(24)00320-6">doi</a></li>
+<li>Cooke SA et al. PET-Boost: results from a randomised clinical trial. <i>Radiother Oncol</i> 2023;181:109492. <a href="https://doi.org/10.1016/j.radonc.2023.109492">doi</a></li>
+<li>Cooke SA et al. Esophageal toxicity after dose-escalated RT (ARTFORCE PET-Boost). <i>Int J Radiat Oncol Biol Phys</i> 2025;122:1227-1237. <a href="https://doi.org/10.1016/j.ijrobp.2025.03.001">doi</a></li>
+<li>Cooke SA et al. PROs after personalised dose-escalation (PET-Boost). <i>Radiother Oncol</i> 2024;196:110312. <a href="https://doi.org/10.1016/j.radonc.2024.110312">doi</a></li>
+<li>Gates EDH et al. Metabolic response and pulmonary toxicity after risk-adaptive chemoradiation (FLARE-RT). <i>Radiother Oncol</i> 2023;185:109720. <a href="https://doi.org/10.1016/j.radonc.2023.109720">doi</a></li>
+<li>Raman S et al. Canadian phase II metabolically adaptive dose escalation (NCT02788461) — protocol. <i>Clin Lung Cancer</i> 2018;19:e699-e703. <a href="https://doi.org/10.1016/j.cllc.2018.05.002">doi</a></li>
+<li>Dudas D et al. Automated target propagation in online MRgRT using foundation models. <i>Phys Imaging Radiat Oncol</i> 2026;41:101077. <a href="https://doi.org/10.1016/j.phro.2026.101077">doi</a></li>
+<li>Xiong Y et al. Patient-specific DL OAR segmentation and accumulated dose in 0.35 T MRgRT. <i>Phys Med Biol</i> 2025;70. <a href="https://doi.org/10.1088/1361-6560/ae16fb">doi</a></li>
+<li>Sana S et al. Fast adaptive 4DCBCT for lung cancer radiotherapy. <i>Phys Imaging Radiat Oncol</i> 2026;39:101007. <a href="https://doi.org/10.1016/j.phro.2026.101007">doi</a></li>
+<li>Moretti I et al. Towards quantitative MRI driving online adaptive MRgRT for lung tumors. <i>Phys Med</i> 2026;142:105731. <a href="https://doi.org/10.1016/j.ejmp.2026.105731">doi</a></li>
+<li>Deng G et al. Tumor volume change and 4D-CT ventilation at mid-treatment ART. <i>Radiother Oncol</i> 2026;216:111383. <a href="https://doi.org/10.1016/j.radonc.2026.111383">doi</a></li>
+<li>Fischer LA et al. PRoART study protocol. <i>BMC Med Imaging</i> 2026;26. <a href="https://doi.org/10.1186/s12880-026-02622-7">doi</a></li>
+</ol>
+
+<footer>Sources : PubMed (métadonnées et résumés ; textes intégraux non relus) et ClinicalTrials.gov. Synthèse descriptive, sans valeur de recommandation.</footer>
+</div>
+</body>
+</html>
